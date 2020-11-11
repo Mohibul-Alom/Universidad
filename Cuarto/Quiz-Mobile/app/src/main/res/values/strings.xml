@@ -2,7 +2,10 @@
     <string name="app_name" translatable="false">Quiz Mobile</string>
     <string name="nombreApp" translatable="false">Quiz Mobile</string>
     <string name="textMensaje">¡Bienvenido a la mejor app de acertijos!</string>
-    <string name="btnEmpezamos">¡Jugar!</string>
+    <string name="btnInicioSesion">Inciar Sesión</string>
+    <string name="btnRegistrar">Registrar</string>
+    <string name="hintEmail">Email</string>
+    <string name="contraseña">Contraseña</string>
     <string name="textNombre">Nombre</string>
     <string name="nameText"></string>
     <string name="nameText2" />

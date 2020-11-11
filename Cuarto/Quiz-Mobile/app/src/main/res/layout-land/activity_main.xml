@@ -7,18 +7,38 @@
     android:background="@color/colorPrimary"
     tools:context=".MainActivity">
 
+    <EditText
+        android:id="@+id/editContra"
+        android:layout_width="280sp"
+        android:layout_height="30sp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/box"
+        android:ems="10"
+        android:fontFamily="@font/cookie"
+        android:gravity="center"
+        android:hint="@string/contraseña"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:textColor="#121111"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editName" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="28dp"
         android:text="@string/nombreApp"
         android:textColor="#0B0A0A"
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:fontFamily="@font/bowlby_one"
-        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -28,48 +48,62 @@
         android:layout_marginTop="16dp"
         android:text="@string/textMensaje"
         android:textColor="#121111"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:fontFamily="@font/cookie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/buttonJugar"
-        android:layout_width="279dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="28dp"
+        android:id="@+id/btnIniciar_sesion"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/disignbutton"
-        android:text="@string/btnEmpezamos"
+        android:onClick="Inciar_Sesion"
+        android:text="@string/btnInicioSesion"
         android:textColor="@android:color/background_light"
-        android:textSize="20sp"
-        android:onClick="Jugar"
+        android:textSize="15sp"
         app:fontFamily="@font/bowlby_one"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editName" />
+        app:layout_constraintTop_toBottomOf="@+id/editContra" />
+
+    <Button
+        android:id="@+id/buttonJugar4"
+        android:layout_width="103dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/disignbutton"
+        android:onClick="Registar"
+        android:text="@string/btnRegistrar"
+        android:textColor="@android:color/background_light"
+        android:textSize="12sp"
+        app:fontFamily="@font/bowlby_one"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnIniciar_sesion" />
 
     <EditText
         android:id="@+id/editName"
-        android:layout_width="279dp"
-        android:layout_height="52dp"
+        android:layout_width="280sp"
+        android:layout_height="30sp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/box"
         android:ems="10"
         android:gravity="center_horizontal"
-        android:hint="@string/textNombre"
+        android:hint="@string/hintEmail"
         android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:text="@string/nameText"
+        android:inputType="textEmailAddress"
         android:textAlignment="center"
         android:textColor="#121111"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:fontFamily="@font/cookie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:ignore="LabelFor"
-        tools:text="@tools:sample/first_names" />
+        tools:ignore="LabelFor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

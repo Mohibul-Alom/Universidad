@@ -3,6 +3,7 @@ package com.example.quiz;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,16 +22,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        EditText email = findViewById(R.id.editName);
+        EditText contraseña = findViewById(R.id.editContra);
+
+        email.setHintTextColor(Color.rgb(220,220,220));
+        contraseña.setHintTextColor(Color.rgb(220,220,220));
+
 
 
     }
 
-    public void Jugar(View view) {
+    public void Inciar_Sesion(View view) {
         this.view = view;
         Intent intent = new Intent(this, quiz1.class);
         EditText editText = (EditText) findViewById(R.id.editName);
         String mensaje = editText.getText().toString();
         intent.putExtra("nombre", mensaje);
         startActivity(intent);
+    }
+
+    public void Registar(View view) {
+
+
     }
 }
