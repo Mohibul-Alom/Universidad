@@ -79,7 +79,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\tuhin_iuc3kzk\Pictures\Android studio\QUIZ.png" />
+                                                <entry key="imagePath" value="C:\Users\tuhin_iuc3kzk\Pictures\Android studio\telefono-inteligente.png" />
                                                 <entry key="scalingPercent" value="44" />
                                               </map>
                                             </option>
@@ -114,7 +114,6 @@
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="ffde03" />
-                                      <entry key="legacyIconShape" value="CIRCLE" />
                                     </map>
                                   </option>
                                 </PersistentState>
