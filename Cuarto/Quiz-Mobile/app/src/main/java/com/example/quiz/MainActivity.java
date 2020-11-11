@@ -23,17 +23,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         EditText email = findViewById(R.id.editName);
-        EditText contraseña = findViewById(R.id.editContra);
+        EditText password = findViewById(R.id.editContra);
 
         email.setHintTextColor(Color.rgb(220,220,220));
-        contraseña.setHintTextColor(Color.rgb(220,220,220));
+        password.setHintTextColor(Color.rgb(220,220,220));
 
 
 
     }
 
     public void Inciar_Sesion(View view) {
-        this.view = view;
+        //this.view = view;
         Intent intent = new Intent(this, quiz1.class);
         EditText editText = (EditText) findViewById(R.id.editName);
         String mensaje = editText.getText().toString();
@@ -42,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Registar(View view) {
-
+        Intent registro = new Intent(this,Registro.class);
+        startActivity(registro);
 
     }
 }

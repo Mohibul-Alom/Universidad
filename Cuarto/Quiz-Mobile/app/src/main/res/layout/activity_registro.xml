@@ -7,4 +7,98 @@
     android:background="@color/colorPrimary"
     tools:context=".Registro">
 
+    <Button
+        android:id="@+id/btnIniciar_sesion2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@color/cardview_shadow_end_color"
+        android:onClick="Inciar_Sesion"
+        android:text="@string/btnInicioSesion"
+        android:textColor="@android:color/background_light"
+        android:textSize="12sp"
+        app:fontFamily="@font/bowlby_one"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistrar2" />
+
+    <Button
+        android:id="@+id/btnRegistrar2"
+        android:layout_width="275dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/disignbutton"
+        android:onClick="Registar"
+        android:text="@string/btnRegistrar"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        app:fontFamily="@font/bowlby_one"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editContraRegister" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/iconoRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/editar__1_" />
+
+    <EditText
+        android:id="@+id/editNameRegister"
+        android:layout_width="275dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/box"
+        android:ems="10"
+        android:fontFamily="@font/cookie"
+        android:gravity="center"
+        android:hint="@string/inputName"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+    <EditText
+        android:id="@+id/editEmailRegister"
+        android:layout_width="275dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/box"
+        android:ems="10"
+        android:fontFamily="@font/cookie"
+        android:gravity="center"
+        android:hint="@string/hintEmail"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNameRegister" />
+
+    <EditText
+        android:id="@+id/editContraRegister"
+        android:layout_width="275dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/box"
+        android:ems="10"
+        android:fontFamily="@font/cookie"
+        android:gravity="center"
+        android:hint="@string/contraseña"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editEmailRegister" />
 </androidx.constraintlayout.widget.ConstraintLayout>
