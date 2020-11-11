@@ -1,3 +1,30 @@
 <resources>
-    <string name="app_name">Quiz Mobile</string>
+    <string name="app_name" translatable="false">Quiz Mobile</string>
+    <string name="nombreApp" translatable="false">Quiz Mobile</string>
+    <string name="textMensaje">¡Bienvenido a la mejor app de acertijos!</string>
+    <string name="btnEmpezamos">¡Jugar!</string>
+    <string name="textNombre">Nombre</string>
+    <string name="nameText"></string>
+    <string name="nameText2" />
+    <string name="pregunta1">¿Cuánto pesaba el Motorola Dynatac 8000x?</string>
+    <string name="persona" />
+    <string name="motorla">Motorla Dynatron 8000x</string>
+    <string name="pre1op1">500g</string>
+    <string name="pre1op2">600 g</string>
+    <string name="pre1op3">700 g</string>
+    <string name="pre1op4">800 g</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="textpreg2">¿Qué significan las siglas NFC?</string>
+    <string name="imgenNFC">NFC</string>
+    <string name="btnVolver">Volver</string>
+    <string name="pregunta3">¿Cómo se llama el sistema de carga rápida de Mediateck?</string>
+    <string name="mediatek" />
+    <string name="pregunta4">¿Cómo se llama la compañia china que fabrica los smartphones de BlackBerry o Alcatel?</string>
+    <string name="opcionesSpinner">Opcion 1</string>
+    <string name="balackberry">BalackBerry</string>
+    <string name="pregunta5">¿De qué otra marca iba acompañanada los teléfonos de Sony hasta 2011?</string>
+    <string name="Logo">Sony Ericsson</string>
+    <string name="puntuacion">Puntuación: </string>
+    <string name="pun_numero" />
+    <string name="btn_Reintentar">¿Reintentar?</string>
 </resources>
