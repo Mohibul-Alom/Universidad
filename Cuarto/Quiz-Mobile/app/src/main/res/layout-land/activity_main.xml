@@ -11,13 +11,12 @@
         android:id="@+id/imageView7"
         android:layout_width="101dp"
         android:layout_height="115dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/iconoApp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/telefono_inteligente" />
+        app:srcCompat="@drawable/signo_de_interrogacion" />
 
     <EditText
         android:id="@+id/editContra"
@@ -26,30 +25,16 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/box"
         android:ems="10"
-        android:fontFamily="@font/cookie"
+        android:fontFamily="@font/work_sans"
         android:gravity="center"
         android:hint="@string/contraseña"
         android:importantForAutofill="no"
         android:inputType="textPassword"
-        android:textColor="#121111"
-        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editName" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/nombreApp"
-        android:textColor="#0B0A0A"
-        android:textSize="12sp"
-        app:fontFamily="@font/bowlby_one"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     <Button
         android:id="@+id/btnIniciar_sesion"
@@ -59,24 +44,24 @@
         android:background="@drawable/disignbutton"
         android:onClick="Inciar_Sesion"
         android:text="@string/btnInicioSesion"
-        android:textColor="@android:color/background_light"
+        android:textColor="@color/colorAccent"
         android:textSize="15sp"
-        app:fontFamily="@font/bowlby_one"
+        app:fontFamily="@font/work_sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editContra" />
 
     <Button
         android:id="@+id/buttonJugar4"
-        android:layout_width="103dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="@color/cardview_shadow_end_color"
         android:onClick="Registar"
         android:text="@string/btnRegistrar"
         android:textColor="@android:color/background_light"
         android:textSize="12sp"
-        app:fontFamily="@font/bowlby_one"
+        app:fontFamily="@font/work_sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnIniciar_sesion" />
@@ -86,20 +71,20 @@
         android:layout_width="280sp"
         android:layout_height="30sp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/box"
         android:ems="10"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:hint="@string/hintEmail"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:textAlignment="center"
-        android:textColor="#121111"
-        android:textSize="20sp"
-        app:fontFamily="@font/cookie"
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
+        app:fontFamily="@font/work_sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
         tools:ignore="LabelFor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
