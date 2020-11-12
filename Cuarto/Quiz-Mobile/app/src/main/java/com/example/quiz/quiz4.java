@@ -53,7 +53,7 @@ public class quiz4 extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 OpcionesItem seleccionado = (OpcionesItem) parent.getItemAtPosition(position);
                 opcion = seleccionado.getOpcion();
-                Toast.makeText(quiz4.this,"Has seleccionado: "+opcion,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(quiz4.this,"Has seleccionado: "+opcion,Toast.LENGTH_SHORT).show();
 
             }
 

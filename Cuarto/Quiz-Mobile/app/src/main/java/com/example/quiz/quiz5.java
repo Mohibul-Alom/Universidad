@@ -93,7 +93,7 @@ public class quiz5 extends AppCompatActivity implements AdapterView.OnItemClickL
         view.startAnimation(animation);
         this.seleccion = opciones.get(position);
         btn1.setVisibility(View.VISIBLE);
-        Toast.makeText(this, "Has seleccionado: "+opciones.get(position), Toast.LENGTH_SHORT).show();
+
 
     }
 }

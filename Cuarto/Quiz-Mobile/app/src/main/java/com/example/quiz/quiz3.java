@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -21,10 +22,7 @@ public class quiz3 extends AppCompatActivity {
 
     private int puntuacion;
     private String nombre;
-
     private String opcion;
-
-
 
     Spinner mSpinner;
     private ArrayList<OpcionesItem>mList;
@@ -50,6 +48,7 @@ public class quiz3 extends AppCompatActivity {
         mList.add(new OpcionesItem("HelioCharge"));
         mList.add(new OpcionesItem("UltraFast Charging"));
 
+
         mSpinner = findViewById(R.id.spinner);
 
         mAdapter = new AdapterSpinner(this,mList);
@@ -60,7 +59,7 @@ public class quiz3 extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 OpcionesItem seleccionado = (OpcionesItem) parent.getItemAtPosition(position);
                 opcion = seleccionado.getOpcion();
-                Toast.makeText(quiz3.this,"Has seleccionado: "+opcion,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(quiz3.this,"Has seleccionado: "+opcion,Toast.LENGTH_SHORT).show();
 
             }
 
