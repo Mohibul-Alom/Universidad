@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,6 +19,7 @@ import java.util.List;
 
 public class quiz5 extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
+    Animation animation;
     private int puntuacion = 0;
     private String nombre;
     private String seleccion = null;
@@ -85,6 +88,9 @@ public class quiz5 extends AppCompatActivity implements AdapterView.OnItemClickL
     }
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        animation = new AlphaAnimation(0.5f, 1.2f);
+        animation.setDuration(2500);
+        view.startAnimation(animation);
         this.seleccion = opciones.get(position);
         btn1.setVisibility(View.VISIBLE);
         Toast.makeText(this, "Has seleccionado: "+opciones.get(position), Toast.LENGTH_SHORT).show();

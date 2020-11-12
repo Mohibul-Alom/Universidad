@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -16,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class quiz2 extends AppCompatActivity implements AdapterView.OnItemClickListener {
-
+    Animation animation;
     private int puntuacion = 0;
     private String nombre;
     private String seleccion = null;
@@ -37,9 +39,9 @@ public class quiz2 extends AppCompatActivity implements AdapterView.OnItemClickL
         puntuacion = intent.getExtras().getInt("puntuacion");
 
         TextView textView = findViewById(R.id.textView10);
-        textView.setText("Pregunta 2: "+nombre);
+        textView.setText("Pregunta 2: " + nombre);
 
-        btn1 =findViewById(R.id.button6);
+        btn1 = findViewById(R.id.button6);
 
         lista = findViewById(R.id.listView2);
 
@@ -50,8 +52,7 @@ public class quiz2 extends AppCompatActivity implements AdapterView.OnItemClickL
         significado.add("Nec Field Connection");
 
 
-
-        mAdapter = new LsitAdapter(quiz2.this,R.layout.itemrow,significado);
+        mAdapter = new LsitAdapter(quiz2.this, R.layout.itemrow, significado);
 
         lista.setAdapter(mAdapter);
 
@@ -68,27 +69,31 @@ public class quiz2 extends AppCompatActivity implements AdapterView.OnItemClickL
     }
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        animation = new AlphaAnimation(0.5f, 1.2f);
+
+        animation.setDuration(2500);
+
+        view.startAnimation(animation);
         this.seleccion = significado.get(position);
         btn1.setVisibility(View.VISIBLE);
-        Toast.makeText(this, "Has seleccionado: "+significado.get(position), Toast.LENGTH_SHORT).show();
 
     }
 
-    public void siguiente2(View view){
+    public void siguiente2(View view) {
         String corrcta = "Near Fild Comunication";
 
-        if (seleccion.compareTo(corrcta)==0){
+        if (seleccion.compareTo(corrcta) == 0) {
             puntuacion += 3;
-        }else{
+        } else {
             puntuacion -= 2;
         }
 
-        if (seleccion != null){
-            Intent intentquiz3 = new Intent(quiz2.this,quiz3.class);
-            intentquiz3.putExtra("nombre",nombre);
-            intentquiz3.putExtra("puntuacion",puntuacion);
+        if (seleccion != null) {
+            Intent intentquiz3 = new Intent(quiz2.this, quiz3.class);
+            intentquiz3.putExtra("nombre", nombre);
+            intentquiz3.putExtra("puntuacion", puntuacion);
             startActivity(intentquiz3);
-        }else{
+        } else {
             Toast.makeText(this, "Seleccione alguna respuesta", Toast.LENGTH_SHORT).show();
         }
 
