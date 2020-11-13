@@ -9,6 +9,8 @@
     <string name="textNombre">Nombre</string>
     <string name="nameText"></string>
     <string name="nameText2"/>
+    <string name="imageNext"/>
+    <string name="imagePrevious"/>
     <string name="inputName">Nombre</string>
     <string name="pregunta1">¿Cuánto pesaba el Motorola Dynatac 8000x?</string>
     <string name="persona" />

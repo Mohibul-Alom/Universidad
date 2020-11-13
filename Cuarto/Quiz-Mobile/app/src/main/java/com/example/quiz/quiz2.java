@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,7 +22,7 @@ public class quiz2 extends AppCompatActivity implements AdapterView.OnItemClickL
     private int puntuacion = 0;
     private String nombre;
     private String seleccion = null;
-    Button btn1;
+    private ImageView imageNext;
 
 
     private ListView lista;
@@ -41,7 +41,8 @@ public class quiz2 extends AppCompatActivity implements AdapterView.OnItemClickL
         TextView textView = findViewById(R.id.textView10);
         textView.setText("Pregunta 2: " + nombre);
 
-        btn1 = findViewById(R.id.button6);
+        imageNext = findViewById(R.id.siguiente2);
+        imageNext.setVisibility(View.INVISIBLE);
 
         lista = findViewById(R.id.listView2);
 
@@ -75,7 +76,7 @@ public class quiz2 extends AppCompatActivity implements AdapterView.OnItemClickL
 
         view.startAnimation(animation);
         this.seleccion = significado.get(position);
-        btn1.setVisibility(View.VISIBLE);
+        imageNext.setVisibility(View.VISIBLE);
 
     }
 

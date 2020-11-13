@@ -1,16 +1,16 @@
 package com.example.quiz;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
+
 
 public class quiz1 extends AppCompatActivity {
 
@@ -18,12 +18,14 @@ public class quiz1 extends AppCompatActivity {
     RadioGroup grupo;
     private int puntuacion = 0;
     private static String nombre;
-    Button btn1;
+    private ImageView imageNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz1);
+
+
 
         Intent intent = getIntent();
         nombre = intent.getExtras().getString("nombre");
@@ -39,13 +41,16 @@ public class quiz1 extends AppCompatActivity {
         r3 = (RadioButton)findViewById(R.id.radioButton3);
         r4 = (RadioButton)findViewById(R.id.radioButton4);
 
-        btn1 = findViewById(R.id.button);
-        btn1.setVisibility(View.INVISIBLE);
+        imageNext = findViewById(R.id.siguiente1);
+        ImageView imagePrevious = findViewById(R.id.anterior1);
+
+        imageNext.setVisibility(View.INVISIBLE);
+
 
         grupo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                btn1.setVisibility(View.VISIBLE);
+                imageNext.setVisibility(View.VISIBLE);
                 Toast.makeText(quiz1.this,"Se ha pulsado",Toast.LENGTH_SHORT).show();
             }
         });
@@ -82,6 +87,6 @@ public class quiz1 extends AppCompatActivity {
     }
 
     public void RadioGroup(View view) {
-        btn1.setVisibility(View.VISIBLE);
+        imageNext.setVisibility(View.VISIBLE);
     }
 }
