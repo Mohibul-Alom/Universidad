@@ -3,6 +3,7 @@ package com.example.quiz;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,16 +15,21 @@ import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
+    BaseDeDatos db;
     private static String nombre;
     private View view;
+    EditText email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText email = findViewById(R.id.editName);
-        EditText password = findViewById(R.id.editContra);
+        db = new BaseDeDatos(this);
+
+
+        email = findViewById(R.id.editName);
+        password = findViewById(R.id.editContra);
 
         email.setHintTextColor(Color.rgb(220,220,220));
         password.setHintTextColor(Color.rgb(220,220,220));
@@ -33,12 +39,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Inciar_Sesion(View view) {
-        //this.view = view;
-        Intent intent = new Intent(this, quiz1.class);
-        EditText editText = (EditText) findViewById(R.id.editName);
-        String mensaje = editText.getText().toString();
-        intent.putExtra("nombre", mensaje);
-        startActivity(intent);
+
+        String textEmail = email.getText().toString();
+        String textContra = password.getText().toString();
+
+        if (textEmail.equals("")||textContra.equals("")){
+            Toast.makeText(this, "Rellene los campos", Toast.LENGTH_SHORT).show();
+        }else{
+
+            
+            Boolean verificarUsuario = db.checkEmailPass(textEmail,textContra);
+
+            //si se ha introducido correctamente los datos de inicio de seision
+            if (verificarUsuario==true){
+                Intent intent = new Intent(this, quiz1.class);
+                //EditText editText = (EditText) findViewById(R.id.editName);
+                //String mensaje = editText.getText().toString();
+
+                String mensaje = db.obtenerNombre(textEmail);
+                intent.putExtra("nombre", mensaje);
+                startActivity(intent);
+            }else{
+                Toast.makeText(this, "Email y/o Contaseña incorrecto", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+
+
+
+
+
+
     }
 
     public void Registar(View view) {
