@@ -58,7 +58,7 @@ public class quiz1 extends AppCompatActivity {
 
 
     public void siguiente(View view) {
-        if (view.getId()==R.id.button){
+        if (view.getId()==R.id.siguiente1){
             if (r4.isChecked()==true){
                 puntuacion = 3;
 
