@@ -1,19 +1,25 @@
 package com.example.quiz;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewParent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
+
 
     BaseDeDatos db;
     private static String nombre;
@@ -24,6 +30,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        SharedPreferences datos = getSharedPreferences("datos",MODE_PRIVATE);
+        boolean primerInicio = datos.getBoolean("primerInicio",true);
+
+        if (primerInicio){
+            pantalla_nuevo_usuario();
+        }
 
         db = new BaseDeDatos(this);
 
@@ -66,11 +80,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-
-
-
-
     }
 
     public void Registar(View view) {
@@ -78,4 +87,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(registro);
 
     }
+
+    public void pantalla_nuevo_usuario(){
+        startActivity(new Intent(this,TutorialAdapter.class));
+    }
+
 }

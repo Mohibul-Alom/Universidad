@@ -29,7 +29,6 @@ public class Registro extends AppCompatActivity {
 
         db = new BaseDeDatos(this);
 
-
         nombre = findViewById(R.id.editNameRegister);
         email = findViewById(R.id.editEmailRegister);
         password = findViewById(R.id.editContraRegister);
@@ -40,53 +39,48 @@ public class Registro extends AppCompatActivity {
 
         register = findViewById(R.id.btnRegistrar2);
 
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String textNombre = nombre.getText().toString();
-                String textEmail = email.getText().toString();
-                String textContra = password.getText().toString();
-
-                if (textEmail.equals("") || textContra.equals("") || textNombre.equals("")){
-                    Toast.makeText(Registro.this, "Los campos estan vacios", Toast.LENGTH_SHORT).show();
-                }else{
-
-                    if (validarEmail(textEmail)==true) {
-
-                        Boolean EmailBaseDeDatos = db.checkmail(textEmail);
-
-                        if (EmailBaseDeDatos == true) {
-
-                            Boolean insertar = db.insert(textNombre, textEmail, textContra);
-
-                            if (insertar == true) {
-                                Toast.makeText(Registro.this, "Registro completado", Toast.LENGTH_SHORT).show();
-
-                                register.setVisibility(View.INVISIBLE);
-                                new Handler().postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        Intent intent = new Intent(Registro.this, MainActivity.class);
-                                        startActivity(intent);
-                                    }
-                                }, 500);
-
-                            }
-                        } else {
-
-                            Toast.makeText(Registro.this, "Email ya existe", Toast.LENGTH_SHORT).show();
-
-                        }
-                    }else{
-                        Toast.makeText(Registro.this, "Introduzca un email valido", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
-
     }
 
     public void Registar(View view) {
+        String textNombre = nombre.getText().toString();
+        String textEmail = email.getText().toString();
+        String textContra = password.getText().toString();
+
+        if (textEmail.equals("") || textContra.equals("") || textNombre.equals("")){
+            Toast.makeText(Registro.this, "Los campos estan vacios", Toast.LENGTH_SHORT).show();
+        }else{
+
+            if (validarEmail(textEmail)==true) {
+
+                Boolean EmailBaseDeDatos = db.checkmail(textEmail);
+
+                if (EmailBaseDeDatos == true) {
+
+                    Boolean insertar = db.insert(textNombre, textEmail, textContra);
+
+                    if (insertar == true) {
+                        Toast.makeText(Registro.this, "Registro completado", Toast.LENGTH_SHORT).show();
+
+                        register.setVisibility(View.INVISIBLE);
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent intent = new Intent(Registro.this, MainActivity.class);
+                                startActivity(intent);
+                            }
+                        }, 100);
+
+                    }
+                } else {
+
+                    Toast.makeText(Registro.this, "Email ya existe", Toast.LENGTH_SHORT).show();
+
+                }
+            }else{
+                Toast.makeText(Registro.this, "Introduzca un email valido", Toast.LENGTH_SHORT).show();
+            }
+        }
+
     }
 
     public void Inciar_Sesion(View view) {

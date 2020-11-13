@@ -8,13 +8,17 @@
     <string name="contraseña">Contraseña</string>
     <string name="textNombre">Nombre</string>
     <string name="nameText"></string>
-    <string name="nameText2"/>
-    <string name="imageNext"/>
-    <string name="imagePrevious"/>
+    <string name="nameText2" />
+    <string name="tutorial2">¡Registrate!</string>
+    <string name="tutorial3">¿Ya tienes cuenta? Inicia sesión entonces</string>
+    <string name="tutorial4">¡Responde a las preguntas!</string>
+    <string name="tutorial5">¡Ya estas listo para los acertijos!</string>
+    <string name="imageNext" />
+    <string name="imagePrevious" />
     <string name="inputName">Nombre</string>
     <string name="pregunta1">¿Cuánto pesaba el Motorola Dynatac 8000x?</string>
     <string name="persona" />
-    <string name="iconoApp"/>
+    <string name="iconoApp" />
     <string name="iconoRegister">Register</string>
     <string name="motorla">Motorla Dynatron 8000x</string>
     <string name="pre1op1">500g</string>
@@ -35,4 +39,6 @@
     <string name="puntuacion">Puntuación: </string>
     <string name="pun_numero" />
     <string name="btn_Reintentar">¿Reintentar?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
