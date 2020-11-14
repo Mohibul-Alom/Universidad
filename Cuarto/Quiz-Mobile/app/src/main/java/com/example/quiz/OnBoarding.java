@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -16,10 +19,11 @@ public class OnBoarding extends AppCompatActivity {
 
     ViewPager viewPager;
     LinearLayout dotsLayout;
-
     SliderAdapter sliderAdapter;
-
     TextView[] dots;
+    Button empecemos;
+    int posicionActual;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,8 @@ public class OnBoarding extends AppCompatActivity {
 
         viewPager = findViewById(R.id.sliderOnboard);
         dotsLayout = findViewById(R.id.dots);
+        empecemos = findViewById(R.id.get_started_button);
+
 
         sliderAdapter = new SliderAdapter(this);
 
@@ -37,6 +43,15 @@ public class OnBoarding extends AppCompatActivity {
 
         viewPager.addOnPageChangeListener(changeListener);
 
+    }
+
+    public void skip(View view){
+        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+        finish();
+    }
+
+    public void next(View view){
+        viewPager.setCurrentItem(posicionActual+1);
     }
 
     private void addDots(int position){
@@ -70,6 +85,13 @@ public class OnBoarding extends AppCompatActivity {
         public void onPageSelected(int position) {
 
             addDots(position);
+            posicionActual = position;
+
+            if (position == 4) {
+                empecemos.setVisibility(View.VISIBLE);
+            }else {
+                empecemos.setVisibility(View.INVISIBLE);
+            }
 
         }
 

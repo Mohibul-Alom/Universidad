@@ -25,16 +25,24 @@ public class MainActivity extends AppCompatActivity {
     BaseDeDatos db;
     private static String nombre;
     EditText email, password;
+    SharedPreferences onBoardingScreen;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        onBoardingScreen = getSharedPreferences("onBoardScreen",MODE_PRIVATE);
 
-        primerInicio();
+        Boolean esPrimeraVez = onBoardingScreen.getBoolean("primeraVez",true);
 
-
+        if (esPrimeraVez){
+            SharedPreferences.Editor editor = onBoardingScreen.edit();
+            editor.putBoolean("primeraVez",false);
+            editor.commit();
+            primerInicio();
+        }
 
         db = new BaseDeDatos(this);
 
@@ -88,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
     public void primerInicio(){
         Intent primer = new Intent(this,OnBoarding.class);
         startActivity(primer);
+        finish();
     }
 
 
