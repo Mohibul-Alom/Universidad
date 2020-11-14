@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import javax.sql.StatementEvent;
@@ -28,12 +29,15 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     public BaseDeDatos(@Nullable Context context) {
         super(context, "login.db", null, 1);
+        insert2("","","");
 
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("Create table usuario(email text primary key, contra text, nombre text)");
+
+
     }
 
 
@@ -60,6 +64,18 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
             return true;
         }
+
+
+    }
+
+    public void insert2(String nombre, String email, String contra){
+        db = this.getWritableDatabase();
+        ContentValues contenido = new ContentValues();
+        contenido.put("nombre",nombre);
+        contenido.put("email",email);
+        contenido.put("contra",contra);
+        db.insert("usuario",null,contenido);
+
 
     }
 
@@ -103,6 +119,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
         return nombreUsuario;
     }
+
 
 
 

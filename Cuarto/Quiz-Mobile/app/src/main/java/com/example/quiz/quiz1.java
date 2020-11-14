@@ -83,10 +83,15 @@ public class quiz1 extends AppCompatActivity {
     public void volver(View view) {
         Intent intentPrincipal = new Intent(this, MainActivity.class);
         startActivity(intentPrincipal);
-
+        finish();
     }
 
     public void RadioGroup(View view) {
         imageNext.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }

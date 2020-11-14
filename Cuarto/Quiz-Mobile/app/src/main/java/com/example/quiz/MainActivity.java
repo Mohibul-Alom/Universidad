@@ -99,5 +99,8 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
+    }
 }
