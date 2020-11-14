@@ -4,11 +4,13 @@
     <string name="textMensaje">¡Bienvenido a la mejor app de acertijos!</string>
     <string name="btnInicioSesion">Inciar Sesión</string>
     <string name="btnRegistrar">Registrar</string>
+    <string name="empecemos">Empecemos</string>
     <string name="hintEmail">Email</string>
     <string name="contraseña">Contraseña</string>
     <string name="textNombre">Nombre</string>
     <string name="nameText"></string>
     <string name="nameText2" />
+    <string name="skip">Skip</string>
     <string name="tutorial2">¡Registrate!</string>
     <string name="tutorial3">¿Ya tienes cuenta? Inicia sesión entonces</string>
     <string name="tutorial4">¡Responde a las preguntas!</string>
@@ -41,4 +43,13 @@
     <string name="btn_Reintentar">¿Reintentar?</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_primer_usuario">primerUsuario</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>

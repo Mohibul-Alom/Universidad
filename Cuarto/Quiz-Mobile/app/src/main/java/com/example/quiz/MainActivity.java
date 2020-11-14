@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -23,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
     BaseDeDatos db;
     private static String nombre;
-    private View view;
     EditText email, password;
 
     @Override
@@ -32,12 +32,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        SharedPreferences datos = getSharedPreferences("datos",MODE_PRIVATE);
-        boolean primerInicio = datos.getBoolean("primerInicio",true);
+        primerInicio();
 
-        if (primerInicio){
-            pantalla_nuevo_usuario();
-        }
+
 
         db = new BaseDeDatos(this);
 
@@ -88,8 +85,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void pantalla_nuevo_usuario(){
-        startActivity(new Intent(this,TutorialAdapter.class));
+    public void primerInicio(){
+        Intent primer = new Intent(this,OnBoarding.class);
+        startActivity(primer);
     }
+
 
 }
