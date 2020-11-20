@@ -17,12 +17,12 @@ import org.w3c.dom.Text;
 
 public class OnBoarding extends AppCompatActivity {
 
-    ViewPager viewPager;
-    LinearLayout dotsLayout;
-    SliderAdapter sliderAdapter;
-    TextView[] dots;
-    Button empecemos;
-    int posicionActual;
+    private ViewPager viewPager;
+    private LinearLayout dotsLayout;
+    private SliderAdapter sliderAdapter;
+    private TextView[] dots;
+    private Button empecemos;
+    private int posicionActual;
 
 
     @Override

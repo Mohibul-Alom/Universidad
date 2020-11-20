@@ -18,14 +18,17 @@ import java.util.regex.Pattern;
 
 public class Registro extends AppCompatActivity {
 
-    BaseDeDatos db;
-    Button register;
-    EditText nombre, email, password;
+    private BaseDeDatos db;
+    private Button register;
+    private EditText nombre, email, password;
+    private Usuario user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
+        
+        user = new Usuario();
 
         db = new BaseDeDatos(this);
 
@@ -42,25 +45,35 @@ public class Registro extends AppCompatActivity {
     }
 
     public void Registar(View view) {
+        
         String textNombre = nombre.getText().toString();
         String textEmail = email.getText().toString();
         String textContra = password.getText().toString();
+        
 
         if (textEmail.equals("") || textContra.equals("") || textNombre.equals("")){
+            
             Toast.makeText(Registro.this, "Los campos estan vacios", Toast.LENGTH_SHORT).show();
+            
         }else{
+            
 
             if (validarEmail(textEmail)==true) {
 
-                Boolean EmailBaseDeDatos = db.checkmail(textEmail);
+                Boolean EmailNuevo = db.checkmail(textEmail);
 
-                if (EmailBaseDeDatos == true) {
+                if (EmailNuevo == true) {
 
-                    Boolean insertar = db.insert(textNombre, textEmail, textContra);
+                    user.setEmail(textEmail);
+                    user.setPassword(textContra);
+                    user.setNombre(textNombre);
+                    user.setPuntuacion(0);
+
+                    Boolean insertar = db.insertOne(user);
 
                     if (insertar == true) {
+                        
                         Toast.makeText(Registro.this, "Registro completado", Toast.LENGTH_SHORT).show();
-
                         register.setVisibility(View.INVISIBLE);
                         new Handler().postDelayed(new Runnable() {
                             @Override

@@ -23,8 +23,9 @@ public class quiz3 extends AppCompatActivity {
     private int puntuacion;
     private String nombre;
     private String opcion;
+    public static String email;
 
-    Spinner mSpinner;
+    private Spinner mSpinner;
     private ArrayList<OpcionesItem>mList;
     private AdapterSpinner mAdapter;
 
@@ -35,6 +36,7 @@ public class quiz3 extends AppCompatActivity {
         setContentView(R.layout.activity_quiz3);
 
         Intent intent = getIntent();
+        email = intent.getExtras().getString("email");
         nombre = intent.getExtras().getString("nombre");
         puntuacion = intent.getExtras().getInt("puntuacion");
 
@@ -89,6 +91,7 @@ public class quiz3 extends AppCompatActivity {
 
         if (opcion != null){
             Intent intentquiz3 = new Intent(quiz3.this,quiz4.class);
+            intentquiz3.putExtra("email",email);
             intentquiz3.putExtra("nombre",nombre);
             intentquiz3.putExtra("puntuacion",puntuacion);
             startActivity(intentquiz3);

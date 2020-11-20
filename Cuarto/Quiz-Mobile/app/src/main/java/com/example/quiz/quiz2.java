@@ -18,9 +18,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class quiz2 extends AppCompatActivity implements AdapterView.OnItemClickListener {
-    Animation animation;
+    private Animation animation;
+
     private int puntuacion = 0;
     private String nombre;
+    public static String email;
+
     private String seleccion = null;
     private ImageView imageNext;
 
@@ -35,6 +38,7 @@ public class quiz2 extends AppCompatActivity implements AdapterView.OnItemClickL
         setContentView(R.layout.activity_quiz2);
 
         Intent intent = getIntent();
+        email = intent.getExtras().getString("email");
         nombre = intent.getExtras().getString("nombre");
         puntuacion = intent.getExtras().getInt("puntuacion");
 
@@ -91,6 +95,7 @@ public class quiz2 extends AppCompatActivity implements AdapterView.OnItemClickL
 
         if (seleccion != null) {
             Intent intentquiz3 = new Intent(quiz2.this, quiz3.class);
+            intentquiz3.putExtra("email",email);
             intentquiz3.putExtra("nombre", nombre);
             intentquiz3.putExtra("puntuacion", puntuacion);
             startActivity(intentquiz3);

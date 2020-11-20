@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OnBoarding"></activity>
+        <activity android:name=".Ranking"></activity>
+        <activity android:name=".OnBoarding" />
         <activity android:name=".Registro" />
         <activity android:name=".finale" />
         <activity android:name=".quiz5" />
@@ -28,6 +29,8 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <service android:name=".MusicaFondo" />
     </application>
 
 </manifest>

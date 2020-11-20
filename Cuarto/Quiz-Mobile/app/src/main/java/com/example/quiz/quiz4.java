@@ -16,6 +16,7 @@ public class quiz4 extends AppCompatActivity {
 
     private int puntuacion;
     private String nombre;
+    public static String email;
 
     private String opcion;
 
@@ -30,6 +31,7 @@ public class quiz4 extends AppCompatActivity {
         setContentView(R.layout.activity_quiz4);
 
         Intent intent = getIntent();
+        email = intent.getExtras().getString("email");
         nombre = intent.getExtras().getString("nombre");
         puntuacion = intent.getExtras().getInt("puntuacion");
 
@@ -83,6 +85,7 @@ public class quiz4 extends AppCompatActivity {
 
         if (opcion != null){
             Intent intentquiz4 = new Intent(quiz4.this,quiz5.class);
+            intentquiz4.putExtra("email",email);
             intentquiz4.putExtra("nombre",nombre);
             intentquiz4.putExtra("puntuacion",puntuacion);
             startActivity(intentquiz4);

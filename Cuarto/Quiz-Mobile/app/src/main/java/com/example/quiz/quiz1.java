@@ -14,10 +14,14 @@ import android.widget.Toast;
 
 public class quiz1 extends AppCompatActivity {
 
-    RadioButton r1,r2,r3,r4;
-    RadioGroup grupo;
+    private RadioButton r1,r2,r3,r4;
+    private RadioGroup grupo;
     private int puntuacion = 0;
+
+
     private static String nombre;
+    public static String email;
+
     private ImageView imageNext;
 
     @Override
@@ -29,6 +33,7 @@ public class quiz1 extends AppCompatActivity {
 
         Intent intent = getIntent();
         nombre = intent.getExtras().getString("nombre");
+        email = intent.getExtras().getString("email");
 
         TextView textView = findViewById(R.id.textView5);
         textView.setText("Pregunta 1: "+nombre);
@@ -73,6 +78,7 @@ public class quiz1 extends AppCompatActivity {
             Intent intentquiz2 = new Intent(this, quiz2.class);
             intentquiz2.putExtra("nombre",nombre);
             intentquiz2.putExtra("puntuacion",puntuacion);
+            intentquiz2.putExtra("email",email);
             startActivity(intentquiz2);
 
         }

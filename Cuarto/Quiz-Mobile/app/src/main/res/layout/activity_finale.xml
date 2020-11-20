@@ -43,7 +43,7 @@
         android:id="@+id/buttonJugar2"
         android:layout_width="279dp"
         android:layout_height="52dp"
-        android:layout_marginTop="236dp"
+        android:layout_marginTop="35dp"
         android:background="@drawable/disignbutton"
         android:onClick="reintentar"
         android:text="@string/btn_Reintentar"
@@ -52,13 +52,13 @@
         app:fontFamily="@font/work_sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+        app:layout_constraintTop_toBottomOf="@+id/ranking" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/work_sans"
         android:text="@string/puntuacion"
         android:textColor="@android:color/black"
@@ -71,7 +71,7 @@
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/box2"
         android:fontFamily="@font/work_sans"
         android:text="@string/pun_numero"
@@ -81,4 +81,21 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <Button
+        android:id="@+id/ranking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:background="#00000000"
+        android:drawableTop="@drawable/trofeo"
+        android:onClick="Ranking"
+        android:text="@string/ranking"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        app:fontFamily="@font/work_sans"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class LsitAdapter extends ArrayAdapter {
 
-    List<String> significado;
+    private List<String> significado;
     public Context mContext;
     public int resourceLayout;
 

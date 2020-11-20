@@ -21,17 +21,21 @@ import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    BaseDeDatos db;
+    private BaseDeDatos db;
     private static String nombre;
-    EditText email, password;
-    SharedPreferences onBoardingScreen;
+    private EditText email, password;
+    private SharedPreferences onBoardingScreen;
+
+    private Usuario u1;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        musica_fondo();
+        u1 = new Usuario();
 
         onBoardingScreen = getSharedPreferences("onBoardScreen",MODE_PRIVATE);
 
@@ -62,22 +66,30 @@ public class MainActivity extends AppCompatActivity {
         String textEmail = email.getText().toString();
         String textContra = password.getText().toString();
 
+
         if (textEmail.equals("")||textContra.equals("")){
             Toast.makeText(this, "Rellene los campos", Toast.LENGTH_SHORT).show();
+
         }else{
 
             
             Boolean verificarUsuario = db.checkEmailPass(textEmail,textContra);
 
+
+
             //si se ha introducido correctamente los datos de inicio de seision
             if (verificarUsuario==true){
-                Intent intent = new Intent(this, quiz1.class);
-                //EditText editText = (EditText) findViewById(R.id.editName);
-                //String mensaje = editText.getText().toString();
 
-                String mensaje = db.obtenerNombre(textEmail);
-                intent.putExtra("nombre", mensaje);
+                //conseguimos el usuario de la base de datos
+                u1 = db.getUsuario(textEmail);
+
+
+                Intent intent = new Intent(this, quiz1.class);
+                intent.putExtra("nombre", u1.getNombre());
+                intent.putExtra("email",u1.getEmail());
                 startActivity(intent);
+
+
             }else{
                 Toast.makeText(this, "Email y/o Contaseña incorrecto", Toast.LENGTH_SHORT).show();
             }
@@ -103,4 +115,13 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         finishAffinity();
     }
+
+    public void musica_fondo(){
+        Intent musica = new Intent(MainActivity.this,MusicaFondo.class);
+        startService(musica);
+
+    }
+
+
 }
+
