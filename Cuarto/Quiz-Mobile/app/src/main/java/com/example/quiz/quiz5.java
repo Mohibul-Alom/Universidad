@@ -6,11 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +28,7 @@ public class quiz5 extends AppCompatActivity implements AdapterView.OnItemClickL
 
     private ListView lista;
     private List<String> opciones;
-    private ListAdapter mAdapter;
+    private android.widget.ListAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +55,7 @@ public class quiz5 extends AppCompatActivity implements AdapterView.OnItemClickL
         opciones.add("Ericsson");
         opciones.add("Xperia");
 
-        mAdapter = new LsitAdapter(quiz5.this,R.layout.itemrow,opciones);
+        mAdapter = new ListAdapter(quiz5.this,R.layout.itemrow,opciones);
 
         lista.setAdapter(mAdapter);
 

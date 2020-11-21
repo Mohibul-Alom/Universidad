@@ -1,6 +1,7 @@
 package com.example.quiz;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,13 +13,13 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
-public class LsitAdapter extends ArrayAdapter {
+public class ListAdapter extends ArrayAdapter {
 
     private List<String> significado;
     public Context mContext;
     public int resourceLayout;
 
-    public LsitAdapter(@NonNull Context context, int resource, List<String> mLista) {
+    public ListAdapter(@NonNull Context context, int resource, List<String> mLista) {
         super(context, resource, mLista);
         this.significado = mLista;
         this.mContext = context;
@@ -33,6 +34,8 @@ public class LsitAdapter extends ArrayAdapter {
             view = LayoutInflater.from(mContext).inflate(resourceLayout,null);
 
         }
+
+        Log.i("ListAdapter","posicion "+position);
 
         String mensaje = significado.get(position);
         TextView frase1 = view.findViewById(R.id.textoListView1);

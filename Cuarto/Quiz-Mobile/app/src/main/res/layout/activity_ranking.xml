@@ -40,34 +40,86 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/signo_de_interrogacion" />
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="409dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar6"
-        app:layout_constraintVertical_bias="0.394">
-
-        <ListView
-            android:id="@+id/listView_ranking"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/box"
-            />
-    </androidx.core.widget.NestedScrollView>
-
     <ImageView
         android:id="@+id/volver"
         android:layout_width="60dp"
         android:layout_height="50dp"
-        android:onClick="volver"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="36dp"
+        android:contentDescription="@android:string/unknownName"
+        android:onClick="volver"
         android:rotationY="180"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/flecha_correcta"
-        android:contentDescription="@android:string/unknownName" />
+        app:srcCompat="@drawable/flecha_correcta" />
+
+    <ImageView
+        android:id="@+id/imageView24"
+        android:layout_width="159dp"
+        android:layout_height="142dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@android:string/unknownName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar6"
+        app:srcCompat="@drawable/trofeo2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/volver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView24">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/columan_1"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:fontFamily="@font/work_sans"
+                android:text="@string/columna_1"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/columna_2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="40dp"
+                android:fontFamily="@font/work_sans"
+                android:text="@string/columna_2"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/columan_3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:fontFamily="@font/work_sans"
+                android:text="@string/columna_3"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/listView_ranking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box2" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

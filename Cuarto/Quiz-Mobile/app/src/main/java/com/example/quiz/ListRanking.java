@@ -1,53 +1,70 @@
 package com.example.quiz;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ListRanking extends ArrayAdapter {
+public class ListRanking extends BaseAdapter {
 
-    private List<Usuario>lista_usuario;
-    public Context mContext;
-    public int layout;
+    private ArrayList<Usuario>lista_usuario;
+    private Context mContext;
+    private int layout;
 
-    public ListRanking(@NonNull Context context, int resource, List<Usuario> mLista) {
-        super(context, resource, mLista);
+    public ListRanking( Context context, ArrayList<Usuario>mLista) {
         this.lista_usuario = mLista;
         this.mContext = context;
-        this.layout = resource;
+        //this.layout = resource;
+
     }
 
-    @NonNull
-    @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
+    public int getCount() {
+        return lista_usuario.size();
+    }
+
+
+    public Object getItem(int position) {
+        return lista_usuario.get(position);
+    }
+
+
+    public long getItemId(int position) {
+        return position;
+    }
+
+
+    public View getView(int position, View convertView, ViewGroup parent) {
+
         View view = convertView;
+
         if (view == null){
-            view = LayoutInflater.from(mContext).inflate(layout,null);
-
+            view = LayoutInflater.from(mContext).inflate(R.layout.filas_ranking,parent,false);
         }
-        int orden = position;
-        String nombre = lista_usuario.get(position).getNombre();
-        int puntuacion = lista_usuario.get(position).getPuntuacion();
 
+
+        Usuario tempUsu = (Usuario) getItem(position);
 
         TextView orden_r = view.findViewById(R.id.orden_ranking);
-        TextView nombre_r = view.findViewById(R.id.nombre_rankig);
+        TextView nombre_r = view.findViewById(R.id.nombre_ranking);
         TextView puntuacion_r = view.findViewById(R.id.puntuacion_ranking);
 
-        orden_r.setText(String.valueOf(position));
-        nombre_r.setText(nombre);
-        puntuacion_r.setText(String.valueOf(puntuacion));
+        orden_r.setText(String.valueOf(position+1));
+        nombre_r.setText(tempUsu.getNombre());
+        puntuacion_r.setText(String.valueOf(tempUsu.getPuntuacion()));
+
 
         return view;
-
     }
 
 

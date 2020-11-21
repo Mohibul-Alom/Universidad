@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +29,7 @@ public class quiz2 extends AppCompatActivity implements AdapterView.OnItemClickL
 
     private ListView lista;
     private List<String> significado;
-    private ListAdapter mAdapter;
+    private android.widget.ListAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +56,7 @@ public class quiz2 extends AppCompatActivity implements AdapterView.OnItemClickL
         significado.add("Nec Field Connection");
 
 
-        mAdapter = new LsitAdapter(quiz2.this, R.layout.itemrow, significado);
+        mAdapter = new ListAdapter(quiz2.this, R.layout.itemrow, significado);
 
         lista.setAdapter(mAdapter);
 

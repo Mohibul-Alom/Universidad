@@ -51,6 +51,6 @@ public class Usuario implements Comparable<Usuario>{
 
     @Override
     public int compareTo(Usuario o) {
-        return this.puntuacion - o.puntuacion;
+        return o.puntuacion - this.getPuntuacion();
     }
 }
