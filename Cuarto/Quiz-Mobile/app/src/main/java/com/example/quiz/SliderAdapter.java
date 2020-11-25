@@ -28,6 +28,8 @@ public class SliderAdapter extends PagerAdapter {
             R.drawable.pantalla_registro,
             R.drawable.pantalla_inicio_sesion,
             R.drawable.pantalla_pregunta,
+            R.drawable.pantalla_puntuacion,
+            R.drawable.pantalla_ranking,
             R.drawable.signo_de_interrogacion
     };
 
@@ -36,7 +38,9 @@ public class SliderAdapter extends PagerAdapter {
             R.string.tutorial2,
             R.string.tutorial3,
             R.string.tutorial4,
-            R.string.tutorial5
+            R.string.tutorial5,
+            R.string.tutorial6,
+            R.string.tutorial7
     };
 
 

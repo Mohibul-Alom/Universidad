@@ -11,10 +11,12 @@
     <string name="nameText"></string>
     <string name="nameText2" />
     <string name="skip">Skip</string>
-    <string name="tutorial2">¡Registrate!</string>
+    <string name="tutorial2">¡Regístrate!</string>
     <string name="tutorial3">¿Ya tienes cuenta? Inicia sesión entonces</string>
     <string name="tutorial4">¡Responde a las preguntas!</string>
-    <string name="tutorial5">¡Ya estas listo para los acertijos!</string>
+    <string name="tutorial5">¡Comprueba tu puntuación!</string>
+    <string name="tutorial6">¡Compite contra los mejores!</string>
+    <string name="tutorial7">¡Ya estás listo para los acertijos!</string>
     <string name="imageNext" />
     <string name="imagePrevious" />
     <string name="inputName">Nombre</string>

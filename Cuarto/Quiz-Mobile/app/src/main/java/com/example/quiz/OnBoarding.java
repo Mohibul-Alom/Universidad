@@ -56,7 +56,7 @@ public class OnBoarding extends AppCompatActivity {
 
     private void addDots(int position){
 
-        dots = new TextView[5];
+        dots = new TextView[7];
         dotsLayout.removeAllViews();
 
         int i;
@@ -87,7 +87,7 @@ public class OnBoarding extends AppCompatActivity {
             addDots(position);
             posicionActual = position;
 
-            if (position == 4) {
+            if (position == 6) {
                 empecemos.setVisibility(View.VISIBLE);
             }else {
                 empecemos.setVisibility(View.INVISIBLE);
