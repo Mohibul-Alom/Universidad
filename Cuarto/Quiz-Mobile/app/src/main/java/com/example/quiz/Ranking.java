@@ -4,16 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 public class Ranking extends AppCompatActivity {
 
@@ -53,7 +49,7 @@ public class Ranking extends AppCompatActivity {
 
 
     public void volver(View view) {
-        Intent volver = new Intent(Ranking.this,finale.class);
+        Intent volver = new Intent(Ranking.this, Puntuacion.class);
         volver.putExtra("email",email);
         volver.putExtra("nombre",nombre);
         volver.putExtra("puntuacion",puntuacion);

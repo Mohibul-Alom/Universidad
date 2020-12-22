@@ -77,9 +77,6 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     }
 
 
-    public void insertPuntuacion(String email, String punt){
-
-    }
 
     public boolean checkmail(String email){
         SQLiteDatabase db = this.getReadableDatabase();
@@ -112,20 +109,6 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     }
 
-    public String obtenerNombre(String email) throws SQLException {
-
-        String nombreUsuario="";
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor fila = db.rawQuery("Select * from usuario where email = ?",new String[]{email});
-
-        if (fila.moveToFirst()){
-           nombreUsuario = fila.getString(2);
-        }
-
-
-        return nombreUsuario;
-    }
 
     public Usuario getUsuario(String email){
 

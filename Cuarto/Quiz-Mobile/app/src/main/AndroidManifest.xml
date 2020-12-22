@@ -12,12 +12,12 @@
         <activity android:name=".Ranking"></activity>
         <activity android:name=".OnBoarding" />
         <activity android:name=".Registro" />
-        <activity android:name=".finale" />
-        <activity android:name=".quiz5" />
-        <activity android:name=".quiz4" />
-        <activity android:name=".quiz3" />
-        <activity android:name=".quiz2" />
-        <activity android:name=".quiz1" />
+        <activity android:name=".Puntuacion" />
+        <activity android:name=".Quiz5" />
+        <activity android:name=".Quiz4" />
+        <activity android:name=".Quiz3" />
+        <activity android:name=".Quiz2" />
+        <activity android:name=".Quiz1" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

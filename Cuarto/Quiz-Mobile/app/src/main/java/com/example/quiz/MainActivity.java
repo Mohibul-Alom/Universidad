@@ -1,23 +1,14 @@
 package com.example.quiz;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.preference.Preference;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewParent;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,9 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private static String nombre;
     private EditText email, password;
     private SharedPreferences onBoardingScreen;
-
     private Usuario u1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +46,6 @@ public class MainActivity extends AppCompatActivity {
         email.setHintTextColor(Color.rgb(220,220,220));
         password.setHintTextColor(Color.rgb(220,220,220));
 
-
-
     }
 
     public void Inciar_Sesion(View view) {
@@ -66,16 +53,12 @@ public class MainActivity extends AppCompatActivity {
         String textEmail = email.getText().toString();
         String textContra = password.getText().toString();
 
-
         if (textEmail.equals("")||textContra.equals("")){
             Toast.makeText(this, "Rellene los campos", Toast.LENGTH_SHORT).show();
 
         }else{
 
-            
             Boolean verificarUsuario = db.checkEmailPass(textEmail,textContra);
-
-
 
             //si se ha introducido correctamente los datos de inicio de seision
             if (verificarUsuario==true){
@@ -84,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 u1 = db.getUsuario(textEmail);
 
 
-                Intent intent = new Intent(this, quiz1.class);
+                Intent intent = new Intent(this, Quiz1.class);
                 intent.putExtra("nombre", u1.getNombre());
                 intent.putExtra("email",u1.getEmail());
                 startActivity(intent);
