@@ -1,0 +1,61 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.asif.snake"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+8-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml
+10
+11    <application
+11-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:6:5-27:19
+12        android:allowBackup="true"
+12-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:7:9-35
+13        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+13-->[com.android.support:support-compat:28.0.0] C:\Users\tuhin_iuc3kzk\.gradle\caches\transforms-2\files-2.1\dd1cf78f22bdd94f550130b281f27c97\support-compat-28.0.0\AndroidManifest.xml:22:18-91
+14        android:debuggable="true"
+15        android:fullBackupContent="true"
+15-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:11:9-41
+16        android:icon="@mipmap/ic_launcher"
+16-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:12:9-43
+17        android:label="Snake"
+17-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:8:9-30
+18        android:supportsRtl="true"
+18-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:9:9-35
+19        android:testOnly="true" >
+20        <activity
+20-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:13:9-17:20
+21            android:name="com.asif.snake.SnakeActivity"
+21-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:14:13-42
+22            android:screenOrientation="landscape"
+22-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:15:13-50
+23            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+23-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:16:13-71
+24        </activity>
+25        <activity
+25-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:18:9-26:20
+26            android:name="com.asif.snake.SettingActivity"
+26-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:18:19-50
+27            android:label="@string/title_activity_settings"
+27-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:19:13-60
+28            android:screenOrientation="landscape"
+28-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:20:13-50
+29            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+29-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:21:13-71
+30            <intent-filter>
+30-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:22:9-25:25
+31                <action android:name="android.intent.action.MAIN" />
+31-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:23:13-65
+31-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:23:21-62
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+33-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:24:13-73
+33-->C:\Users\tuhin_iuc3kzk\Documents\GitHub\Universidad\Cuarto\Snake-master\app\src\main\AndroidManifest.xml:24:23-70
+34            </intent-filter>
+35        </activity>
+36    </application>
+37
+38</manifest>
