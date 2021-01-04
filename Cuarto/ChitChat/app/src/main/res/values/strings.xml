@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ChitChat</string>
+    <string name="iniciar_sesión">Iniciar Sesión</string>
+    <string name="usuario">Usuario</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="he_olvidado_contra">He olvidado la contraseña</string>
+</resources>
