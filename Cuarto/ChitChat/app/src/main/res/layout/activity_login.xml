@@ -52,7 +52,7 @@
                 android:importantForAutofill="no"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/black"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titulo1" />
@@ -70,7 +70,7 @@
                 android:importantForAutofill="no"
                 android:inputType="textPassword"
                 android:textColor="@color/black"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/email_inicio_sesion" />
@@ -79,12 +79,13 @@
                 android:id="@+id/he_olvidado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="10sp"
-                android:fontFamily="@font/segoe_ui"
-                android:textColor="#F60977"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/segoe_ui_bold"
                 android:text="@string/he_olvidado_contra"
+                android:textColor="#F60977"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.503"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
