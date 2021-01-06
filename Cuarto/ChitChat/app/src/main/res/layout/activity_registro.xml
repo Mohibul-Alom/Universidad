@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".Login">
+    tools:context=".Registro">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/Inicio_sesion"
+        android:id="@+id/Registro_2"
         android:layout_width="340dp"
-        android:layout_height="380dp"
+        android:layout_height="400dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,19 +20,30 @@
         card_view:cardElevation="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/titulo1"
+                android:id="@+id/opciones2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:background="@color/white"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/segoe_ui"
+                android:text="@string/opciones_registro"
+                android:textColor="#707070"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+            <TextView
+                android:id="@+id/titulo3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/segoe_ui_bold"
-                android:gravity="center"
-                android:text="@string/iniciar_sesión"
+                android:text="@string/cuenta_nueva"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -40,10 +51,10 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/usuario_inicio_sesion"
+                android:id="@+id/usuario_registro"
                 android:layout_width="200dp"
                 android:layout_height="35dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/bordes"
                 android:ems="10"
                 android:fontFamily="@font/segoe_ui"
@@ -56,10 +67,28 @@
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titulo1" />
+                app:layout_constraintTop_toBottomOf="@+id/titulo3" />
 
             <EditText
-                android:id="@+id/contra_inicio_sesion"
+                android:id="@+id/email_registro"
+                android:layout_width="200dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bordes"
+                android:ems="10"
+                android:fontFamily="@font/segoe_ui"
+                android:gravity="center"
+                android:hint="@string/correo"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:textColorHint="#B0B0B0"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/usuario_registro" />
+
+            <EditText
+                android:id="@+id/contra_registro"
                 android:layout_width="200dp"
                 android:layout_height="35dp"
                 android:layout_marginTop="20dp"
@@ -70,62 +99,35 @@
                 android:hint="@string/contraseña"
                 android:importantForAutofill="no"
                 android:inputType="textPassword"
-                android:textColor="@color/black"
                 android:textColorHint="#B0B0B0"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/usuario_inicio_sesion" />
+                app:layout_constraintTop_toBottomOf="@+id/email_registro" />
 
             <TextView
-                android:id="@+id/he_olvidado"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/segoe_ui_bold"
-                android:text="@string/he_olvidado_contra"
-                android:textColor="#F60977"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.503"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/contra_inicio_sesion" />
-
-            <TextView
-                android:id="@+id/entrar"
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:fontFamily="@font/segoe_ui_bold"
-                android:text="@string/entrar"
+                android:text="@string/crear"
                 android:textColor="#F60977"
+
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/he_olvidado" />
+                app:layout_constraintTop_toBottomOf="@+id/contra_registro" />
 
             <View
-                android:id="@+id/divider"
+                android:id="@+id/divider2"
                 android:layout_width="265dp"
                 android:layout_height="2dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:background="?android:attr/listDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/entrar" />
-
-            <TextView
-                android:id="@+id/opciones"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="@font/segoe_ui"
-                android:text="@string/opciones_inicio"
-                android:textColor="#707070"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider" />
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/botones_acceso_rapido"
@@ -135,65 +137,65 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/opciones">
+                app:layout_constraintTop_toBottomOf="@+id/opciones2">
 
                 <ImageView
-                    android:id="@+id/google_inicio"
+                    android:id="@+id/google_registro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/google"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/facebook_inicio"
+                    app:layout_constraintEnd_toStartOf="@+id/facebook_registro"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     card_view:srcCompat="@drawable/google" />
 
                 <ImageView
-                    android:id="@+id/facebook_inicio"
+                    android:id="@+id/facebook_registro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/facebook"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/instagram_inicio"
+                    app:layout_constraintEnd_toStartOf="@+id/instagram"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/google_inicio"
+                    app:layout_constraintStart_toEndOf="@+id/google_registro"
                     app:layout_constraintTop_toTopOf="parent"
                     card_view:srcCompat="@drawable/facebook" />
 
                 <ImageView
-                    android:id="@+id/instagram_inicio"
+                    android:id="@+id/instagram"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/instagram"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/twitter_inicio"
+                    app:layout_constraintEnd_toStartOf="@+id/twitter_registro"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/facebook_inicio"
+                    app:layout_constraintStart_toEndOf="@+id/facebook_registro"
                     app:layout_constraintTop_toTopOf="parent"
                     card_view:srcCompat="@drawable/instagram" />
 
                 <ImageView
-                    android:id="@+id/twitter_inicio"
+                    android:id="@+id/twitter_registro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/twitter"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/tiktok_inicio"
+                    app:layout_constraintEnd_toStartOf="@+id/tiktok_registro"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/instagram_inicio"
+                    app:layout_constraintStart_toEndOf="@+id/instagram"
                     app:layout_constraintTop_toTopOf="parent"
                     card_view:srcCompat="@drawable/gorjeo" />
 
                 <ImageView
-                    android:id="@+id/tiktok_inicio"
+                    android:id="@+id/tiktok_registro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/tiktok"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/twitter_inicio"
+                    app:layout_constraintStart_toEndOf="@+id/twitter_registro"
                     app:layout_constraintTop_toTopOf="parent"
                     card_view:srcCompat="@drawable/tiktok" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -202,10 +204,10 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/Registro"
-        android:layout_width="280dp"
-        android:layout_height="360dp"
-        android:layout_marginTop="240dp"
+        android:id="@+id/inicio_2"
+        android:layout_width="278dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -218,26 +220,25 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
-                android:layout_height="43dp"
-                android:onClick="crear_cuenta"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_height="65dp"
+                android:onClick="iniciar_sesion"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/titulo2"
+                    android:id="@+id/titulo4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/segoe_ui_bold"
-                    android:onClick="crear_cuenta"
-                    android:text="@string/cuenta_nueva"
+                    android:onClick="iniciar_sesion"
+                    android:text="@string/iniciar_sesión"
                     android:textColor="#707070"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.615" />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

@@ -4,12 +4,15 @@
     <string name="usuario">Usuario</string>
     <string name="contraseña">Contraseña</string>
     <string name="he_olvidado_contra">He olvidado la contraseña</string>
-    <string name="cuenta_nueva">Cuenta Nueva</string>
+    <string name="cuenta_nueva">CUENTA NUEVA</string>
     <string name="entrar">ENTRAR</string>
     <string name="opciones_inicio">O puedes iniciar con</string>
     <string name="google">Google</string>
     <string name="facebook">Facebook</string>
     <string name="instagram">Instagram</string>
     <string name="twitter">Twitter</string>
-    <string name="apple">Apple</string>
+    <string name="tiktok">TikTok</string>
+    <string name="correo">Correo</string>
+    <string name="crear">CREAR</string>
+    <string name="opciones_registro">O puedes registrarte con</string>
 </resources>
