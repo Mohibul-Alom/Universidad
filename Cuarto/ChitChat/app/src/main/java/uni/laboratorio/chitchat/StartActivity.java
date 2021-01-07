@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class StartActivity extends AppCompatActivity {
 
     @Override
@@ -15,7 +17,20 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-        Intent nuevo = new Intent(this,Login.class);
-        startActivity(nuevo);
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (FirebaseAuth.getInstance().getCurrentUser()!=null){
+            startActivity(new Intent(StartActivity.this,MainActivity.class));
+            finish();
+        }else{
+            Intent nuevo = new Intent(this,Login.class);
+            startActivity(nuevo);
+            finish();
+        }
     }
 }

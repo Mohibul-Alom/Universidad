@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -35,7 +37,7 @@ public class Registro extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference reference;
 
-    ProgressDialog pd;
+    ProgressBar progressBar;
 
 
     private static final String TAG = "Registro";
@@ -54,7 +56,7 @@ public class Registro extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         reference = FirebaseDatabase.getInstance().getReference();
-        pd = new ProgressDialog(this);
+        progressBar = findViewById(R.id.indeterminateBar);
 
 
         crear.setOnClickListener(new View.OnClickListener() {
@@ -78,9 +80,10 @@ public class Registro extends AppCompatActivity {
     }
 
     private void registerUsuario(String Usuario, String Correo, String Password) {
-
-        pd.setMessage("Cargando...");
-        pd.onStart();
+        crear.setVisibility(View.GONE);
+        progressBar.getIndeterminateDrawable()
+                .setColorFilter(Color.rgb(246,9,119), PorterDuff.Mode.SRC_IN);
+        progressBar.setVisibility(View.VISIBLE);
 
         mAuth.createUserWithEmailAndPassword(Correo,Password)
                 .addOnSuccessListener(this, new OnSuccessListener<AuthResult>() {
@@ -90,14 +93,17 @@ public class Registro extends AppCompatActivity {
                         map.put("Correo",Correo);
                         map.put("Usuario",Usuario);
                         map.put("id",mAuth.getCurrentUser().getUid());
+                        map.put("bio","");
+                        map.put("imageurl","default");
 
                         reference.child("Usuarios").child(mAuth.getCurrentUser().getUid()).setValue(map)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()){
-                                            Log.d(TAG, "onComplete() called with: task = [" + task + "]");
-                                            Toast.makeText(Registro.this, "Actualice", Toast.LENGTH_SHORT).show();
+
+                                            Toast.makeText(Registro.this, "Actualice el perfil para mejorar la experiencia", Toast.LENGTH_SHORT).show();
+                                            progressBar.setVisibility(View.GONE);
                                             Intent intent = new Intent(Registro.this, MainActivity.class);
                                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                             startActivity(intent);
@@ -109,41 +115,11 @@ public class Registro extends AppCompatActivity {
                 }).addOnFailureListener(this, new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        progressBar.setVisibility(View.GONE);
                         Toast.makeText(Registro.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
         });
     }
-
-/*
-        // [START create_user_with_email]
-        mAuth.createUserWithEmailAndPassword(Correo, Password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(Registro.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
-                            Log.d(TAG, "Registro de usuario: exito");
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-                        } else {
-
-                            Log.w(TAG, "Registro de usuario: fallo", task.getException());
-                            Toast.makeText(Registro.this, "Ha falla la identificación.",
-                                    Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-                });
-
-        Intent intent = new Intent(Registro.this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finish();
-
-    }
-
-
- */
 
     public void iniciar_sesion(View view) {
         Intent iniciarSesion = new Intent(this,Login.class);
