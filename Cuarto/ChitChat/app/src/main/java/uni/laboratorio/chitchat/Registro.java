@@ -95,6 +95,7 @@ public class Registro extends AppCompatActivity {
                         map.put("id",mAuth.getCurrentUser().getUid());
                         map.put("bio","");
                         map.put("imageurl","default");
+                        map.put("Nombre Completo:","");
 
                         reference.child("Usuarios").child(mAuth.getCurrentUser().getUid()).setValue(map)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {

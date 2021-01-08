@@ -25,4 +25,6 @@
     <string name="descripcion">Descripción</string>
     <string name="imagen" />
     <string name="cerrar" />
+    <string name="buscar">Buscar...</string>
+    <string name="nombreCompleto">Nombre Completo</string>
 </resources>

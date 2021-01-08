@@ -113,7 +113,6 @@
                 android:fontFamily="@font/segoe_ui_bold"
                 android:text="@string/crear"
                 android:textColor="#F60977"
-
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
