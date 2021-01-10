@@ -3,20 +3,30 @@ package uni.laboratorio.chitchat.Model;
 public class Usuario {
 
     private String nombreCompleto;
-    private String correo;
-    private String nombreUsuario;
+    private String Correo;
+    private String Usuario;
     private String imageUrl;
     private String id;
+    private String bio;
 
     public Usuario() {
     }
 
-    public Usuario(String nombreCompleto, String correo, String nombreUsuario, String imageUrl, String id) {
+    public Usuario(String nombreCompleto, String correo, String usuario, String imageUrl, String id, String bio) {
         this.nombreCompleto = nombreCompleto;
-        this.correo = correo;
-        this.nombreUsuario = nombreUsuario;
+        Correo = correo;
+        Usuario = usuario;
         this.imageUrl = imageUrl;
         this.id = id;
+        this.bio = bio;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
     public String getNombreCompleto() {
@@ -28,19 +38,19 @@ public class Usuario {
     }
 
     public String getCorreo() {
-        return correo;
+        return Correo;
     }
 
     public void setCorreo(String correo) {
-        this.correo = correo;
+        this.Correo = correo;
     }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public String getUsuario() {
+        return Usuario;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setUsuario(String usuario) {
+        this.Usuario = usuario;
     }
 
     public String getImageUrl() {

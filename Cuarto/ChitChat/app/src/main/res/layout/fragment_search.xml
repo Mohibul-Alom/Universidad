@@ -19,31 +19,48 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/buscar"
                 android:src="@drawable/ic_search" />
 
             <com.hendraanggrian.appcompat.widget.SocialAutoCompleteTextView
                 android:id="@+id/barra_busqueda"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="20dp"
                 android:background="@android:color/transparent"
+                android:fontFamily="@font/segoe_ui"
                 android:hint="@string/buscar" />
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle_view_usuarios"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bar"/>
+        android:layout_below="@id/bar">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recycle_view_tags"
-        android:layout_below="@id/recycle_view_usuarios"
-        android:layout_marginTop="5dp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_view_usuarios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bar" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_view_tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recycle_view_usuarios"
+                android:layout_marginTop="5dp" />
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
 
 
 </RelativeLayout>

@@ -27,4 +27,6 @@
     <string name="cerrar" />
     <string name="buscar">Buscar...</string>
     <string name="nombreCompleto">Nombre Completo</string>
+    <string name="tags">#tags</string>
+    <string name="posts">123 posts</string>
 </resources>
