@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button actual;
 
-    
+    private RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
         actual = findViewById(R.id.actual);
 
-
+        requestQueue = Volley.newRequestQueue(this);
+        
 
     }
 

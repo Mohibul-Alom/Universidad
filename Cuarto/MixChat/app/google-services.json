@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "813544394856",
+    "project_id": "inbox-6b950",
+    "storage_bucket": "inbox-6b950.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813544394856:android:7392294a128039eb21abdd",
+        "android_client_info": {
+          "package_name": "uni.laboratorio.mixchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813544394856-fklfs2kivm1rctmugt3eh7qcirv9bsr3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPbUvcx62y4Lk2O7k7CxRb1OEojqlhzLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813544394856-fklfs2kivm1rctmugt3eh7qcirv9bsr3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
