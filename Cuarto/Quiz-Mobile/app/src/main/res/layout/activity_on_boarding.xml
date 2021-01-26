@@ -35,7 +35,8 @@
         android:layout_width="match_parent"
         android:layout_height="140dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="10dp">
+        tools:layout_editor_absoluteX="10dp"
+        tools:ignore="MissingClass">
 
 
         <Button
