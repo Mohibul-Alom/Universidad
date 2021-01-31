@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "740954294639",
+    "project_id": "suresave-cabf4",
+    "storage_bucket": "suresave-cabf4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740954294639:android:32abde7549a16af101809a",
+        "android_client_info": {
+          "package_name": "uni.laboratorio.suresave"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "740954294639-971r8qbvnu7q47k5ctl5vksuibvn32ai.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUH8G1WPqHv8i3EUBAw_Ex3cBf8xFX8fk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "740954294639-971r8qbvnu7q47k5ctl5vksuibvn32ai.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

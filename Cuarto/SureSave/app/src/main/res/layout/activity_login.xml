@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    tools:context=".Login">
+
+    <ImageView
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:contentDescription="@string/descripcion"
+        android:onClick="salir"
+        android:src="@drawable/cancel" />
+
+    <ImageView
+        android:id="@+id/icono_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/login_card"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-30dp"
+        android:contentDescription="@string/descripcion"
+        android:elevation="6dp"
+        android:src="@drawable/icono_login" />
+
+    <RelativeLayout
+        android:id="@+id/login_card"
+        android:layout_width="300dp"
+        android:layout_height="350dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/custom_button"
+        android:backgroundTint="@color/secundario">
+
+        <EditText
+            android:id="@+id/login_email"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/custom_edittext"
+            android:ems="10"
+            android:fontFamily="@font/normal"
+            android:gravity="center"
+            android:hint="@string/email"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/login_contraseña"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@+id/login_email"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/custom_edittext"
+            android:ems="10"
+            android:fontFamily="@font/normal"
+            android:gravity="center"
+            android:hint="@string/contraseña"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="15sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_login"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/login_contraseña"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/azul"
+            android:fontFamily="@font/bold"
+            android:onClick="autenticar"
+            android:text="@string/iniciar_sesion"
+            android:textSize="15sp"
+            app:cornerRadius="5dp"
+            app:icon="@drawable/enter"
+            app:iconGravity="textStart" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/registrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_card"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/normal"
+        android:onClick="registrar"
+        android:text="@string/registrar"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+</RelativeLayout>
