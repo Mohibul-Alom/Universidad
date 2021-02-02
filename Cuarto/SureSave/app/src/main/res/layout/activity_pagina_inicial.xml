@@ -1,9 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary"
     tools:context=".PaginaInicial">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/navegacion"
+        android:layout_alignParentTop="true" />
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navegacion"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/windowBackground"
+        android:elevation="10dp"
+        android:focusable="true"
+        app:fabCradleMargin="20dp"
+        app:itemBackground="@color/secundario"
+        app:itemIconTint="@drawable/nav_item_color_seleccion"
+        app:itemRippleColor="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/menu">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_mas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/navegacion"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="@string/descripcion"
+        android:focusable="true"
+        android:src="@drawable/ic_mas"
+        app:backgroundTint="@color/azul"
+        app:elevation="8dp"
+        app:fabCustomSize="50dp"
+        app:maxImageSize="30dp"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_gastos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_mas"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toEndOf="@+id/btn_mas"
+        android:contentDescription="@string/descripcion"
+        android:focusable="true"
+        android:src="@drawable/outcome"
+        android:visibility="invisible"
+        app:backgroundTint="#39395C"
+        app:elevation="8dp"
+        app:fabCustomSize="50dp"
+        app:maxImageSize="30dp"
+        app:tint="#B40B0B" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_ingresos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_mas"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toStartOf="@+id/btn_mas"
+        android:contentDescription="@string/descripcion"
+        android:focusable="true"
+        android:src="@drawable/income"
+        android:visibility="invisible"
+        app:backgroundTint="#39395C"
+        app:fabCustomSize="50dp"
+        app:maxImageSize="30dp"
+        app:tint="#07B32A" />
+
+
+</RelativeLayout>
