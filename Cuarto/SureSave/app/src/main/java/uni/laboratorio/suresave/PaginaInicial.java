@@ -116,8 +116,8 @@ public class PaginaInicial extends AppCompatActivity {
             btn_ingresos.setVisibility(View.VISIBLE);
             btn_gastos.setVisibility(View.VISIBLE);
         }else {
-            btn_ingresos.setVisibility(View.INVISIBLE);
-            btn_gastos.setVisibility(View.INVISIBLE);
+            btn_ingresos.setVisibility(View.GONE);
+            btn_gastos.setVisibility(View.GONE);
         }
     }
     private void setAnimation(boolean selecionado) {
@@ -134,6 +134,12 @@ public class PaginaInicial extends AppCompatActivity {
             btn_ingresos.startAnimation(toBottom);
             btn_gastos.startAnimation(toBottom);
             btn_mas.startAnimation(rotateClose);
+            rotateOpen.setFillAfter(false);
+            rotateClose.setFillAfter(false);
+            fromBottom.setFillAfter(false);
+            toBottom.setFillAfter(false);
+            btn_ingresos.setClickable(false);
+            btn_gastos.setClickable(false);
         }
 
     }
