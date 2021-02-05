@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="imagen_perfil" type="id" />
+    <item name="appbar_layout" type="id" />
+    <item name="recycle_list" type="id" />
+    <item name="toolbar" type="id" />
+    <item name="nombre_usuario" type="id" />
+    <item name="nested_toolbar" type="id" />
+    <item name="txt_ingresos" type="id" />
+    <item name="txt_ingresos_cantidad" type="id" />
+    <item name="nested_cardview_ingresos" type="id" />
+</resources>

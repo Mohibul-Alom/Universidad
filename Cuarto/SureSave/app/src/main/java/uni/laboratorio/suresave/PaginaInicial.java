@@ -1,30 +1,35 @@
 package uni.laboratorio.suresave;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import uni.laboratorio.suresave.fragment.CuentaFragment;
 import uni.laboratorio.suresave.fragment.FiltroFragment;
+import uni.laboratorio.suresave.fragment.GastosFragment;
 import uni.laboratorio.suresave.fragment.HomeFragment;
+import uni.laboratorio.suresave.fragment.IngresosFragment;
 import uni.laboratorio.suresave.fragment.MetasFragment;
 
-public class PaginaInicial extends AppCompatActivity {
+public class PaginaInicial extends AppCompatActivity implements GastosFragment.EnviarDatosInterfaz {
+
+    private final static String TAG = "Pagina Principal";
 
     private BottomNavigationView navigationView;
     private Fragment selectorFragment;
 
-    private FloatingActionButton btn_mas,btn_ingresos,btn_gastos;
+    private FloatingActionButton btn_mas, btn_ingresos, btn_gastos;
 
     private boolean selecionado = false;
 
@@ -32,8 +37,7 @@ public class PaginaInicial extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagina_inicial);
-
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         navigationView = findViewById(R.id.navegacion);
 
@@ -52,24 +56,31 @@ public class PaginaInicial extends AppCompatActivity {
         btn_ingresos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(PaginaInicial.this, "Ingresos", Toast.LENGTH_SHORT).show();
+                selectorFragment = new IngresosFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, selectorFragment).commit();
+                setAnimation(selecionado);
+                setVisibility(selecionado);
+                selecionado = false;
             }
         });
 
         btn_gastos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(PaginaInicial.this, "Gastos", Toast.LENGTH_SHORT).show();
+                selectorFragment = new GastosFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, selectorFragment).commit();
+                setAnimation(selecionado);
+                setVisibility(selecionado);
+                selecionado = false;
             }
         });
-
 
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                switch(item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.nav_home:
                         selectorFragment = new HomeFragment();
                         break;
@@ -85,9 +96,10 @@ public class PaginaInicial extends AppCompatActivity {
                     case R.id.nav_cuenta:
                         selectorFragment = new CuentaFragment();
                         break;
+
                 }
-                if (selectorFragment != null){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,selectorFragment).commit();
+                if (selectorFragment != null) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, selectorFragment).commit();
                 }
 
                 return true;
@@ -99,38 +111,42 @@ public class PaginaInicial extends AppCompatActivity {
 
     }
 
+
     private void masButtonClicked() {
 
         setVisibility(selecionado);
         setAnimation(selecionado);
-        if (!selecionado){
+        if (!selecionado) {
             selecionado = true;
-        }else {
+        } else {
             selecionado = false;
         }
 
     }
 
     private void setVisibility(boolean selecionado) {
-        if (!selecionado){
+        if (!selecionado) {
             btn_ingresos.setVisibility(View.VISIBLE);
             btn_gastos.setVisibility(View.VISIBLE);
-        }else {
+            btn_ingresos.setClickable(true);
+            btn_gastos.setClickable(true);
+        } else {
             btn_ingresos.setVisibility(View.GONE);
             btn_gastos.setVisibility(View.GONE);
         }
     }
+
     private void setAnimation(boolean selecionado) {
 
-        Animation rotateOpen = AnimationUtils.loadAnimation(this,R.anim.rotate_open_anim);
-        Animation rotateClose = AnimationUtils.loadAnimation(this,R.anim.rotate_close_anim);
-        Animation fromBottom = AnimationUtils.loadAnimation(this,R.anim.from_bottom_anim);
-        Animation toBottom = AnimationUtils.loadAnimation(this,R.anim.to_bottom_anim);
-        if (!selecionado){
+        Animation rotateOpen = AnimationUtils.loadAnimation(this, R.anim.rotate_open_anim);
+        Animation rotateClose = AnimationUtils.loadAnimation(this, R.anim.rotate_close_anim);
+        Animation fromBottom = AnimationUtils.loadAnimation(this, R.anim.from_bottom_anim);
+        Animation toBottom = AnimationUtils.loadAnimation(this, R.anim.to_bottom_anim);
+        if (!selecionado) {
             btn_ingresos.startAnimation(fromBottom);
             btn_gastos.startAnimation(fromBottom);
             btn_mas.startAnimation(rotateOpen);
-        }else {
+        } else {
             btn_ingresos.startAnimation(toBottom);
             btn_gastos.startAnimation(toBottom);
             btn_mas.startAnimation(rotateClose);
@@ -145,4 +161,13 @@ public class PaginaInicial extends AppCompatActivity {
     }
 
 
+    @Override
+    public void enviarDatos(String datos) {
+
+        String prueba = "Selecccionado";
+
+        if (datos.compareTo(prueba)==0) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new HomeFragment()).commit();
+        }
+    }
 }

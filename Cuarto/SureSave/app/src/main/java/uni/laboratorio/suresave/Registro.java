@@ -81,9 +81,10 @@ public class Registro extends AppCompatActivity {
                         HashMap<String,Object> datosUsuario = new HashMap<>();
                         datosUsuario.put("id",auth.getCurrentUser().getUid());
                         datosUsuario.put("nombre",nombre);
-                        datosUsuario.put("usuario","dafault");
                         datosUsuario.put("email",email);
                         datosUsuario.put("imagenUrl","default");
+                        datosUsuario.put("gastos",(double)0);
+                        datosUsuario.put("ingresos",(double)0);
 
                         reference.child("Usuarios").child(auth.getCurrentUser().getUid()).setValue(datosUsuario)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {

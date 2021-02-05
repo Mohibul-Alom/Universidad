@@ -1,14 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary"
+    android:windowSoftInputMode="adjustPan"
     tools:context=".fragment.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:elevation="5dp">
 
-</FrameLayout>
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:background="@color/secundario"
+                android:contentInsetStart="0dp"
+                android:contentInsetLeft="0dp"
+                android:contentInsetEnd="0dp"
+                android:contentInsetRight="0dp"
+                app:contentInsetEnd="0dp"
+                app:contentInsetLeft="0dp"
+                app:contentInsetRight="0dp"
+                app:contentInsetStart="0dp"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <RelativeLayout
+                    android:id="@+id/nested_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imagen_perfil"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:contentDescription="@string/descripcion"
+                        android:src="@drawable/cuenta_lleno" />
+
+                    <TextView
+                        android:id="@+id/nombre_usuario"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toEndOf="@+id/imagen_perfil"
+                        android:fontFamily="@font/normal"
+                        android:text="@string/nombre_usuario"
+                        android:textColor="@color/white"
+                        android:textSize="35sp" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardview_ingresos"
+                        android:layout_width="160dp"
+                        android:layout_height="70dp"
+                        android:layout_below="@+id/imagen_perfil"
+                        android:layout_marginStart="7dp"
+                        android:layout_marginTop="10dp"
+                        android:backgroundTint="@color/cuarto"
+                        app:cardCornerRadius="10dp">
+
+                        <RelativeLayout
+                            android:id="@+id/nested_cardview_ingresos"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/txt_ingresos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/normal"
+                                android:text="@string/ingresos"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/txt_ingresos_cantidad"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="15dp"
+                                android:fontFamily="@font/bold"
+                                android:gravity="end"
+                                android:text="@string/cantidad"
+                                android:textColor="@color/white"
+                                android:textSize="25sp" />
+
+                            <ImageView
+                                android:id="@+id/euro_ingresos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@+id/txt_ingresos_cantidad"
+                                android:layout_alignBottom="@+id/txt_ingresos_cantidad"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                android:layout_marginBottom="0dp"
+                                android:layout_toEndOf="@+id/txt_ingresos_cantidad"
+                                android:contentDescription="@string/descripcion"
+                                android:src="@drawable/ic_euro" />
+
+
+                            <ImageView
+                                android:id="@+id/barra"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txt_ingresos_cantidad"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="5dp"
+                                android:contentDescription="@string/descripcion"
+                                android:src="@drawable/rectangulo_verde" />
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardview_gastos"
+                        android:layout_width="160dp"
+                        android:layout_height="70dp"
+                        android:layout_below="@+id/imagen_perfil"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="7dp"
+                        android:backgroundTint="@color/cuarto"
+                        app:cardCornerRadius="10dp">
+
+                        <RelativeLayout
+                            android:id="@+id/nested_cardview_gastos"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/txt_gastos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/normal"
+                                android:text="@string/gastos"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/txt_gastos_cantidad"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="15dp"
+                                android:fontFamily="@font/bold"
+                                android:gravity="center_horizontal"
+                                android:text="@string/cantidad"
+                                android:textColor="@color/white"
+                                android:textSize="25sp" />
+
+                            <ImageView
+                                android:id="@+id/euro_gastos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@+id/txt_gastos_cantidad"
+                                android:layout_alignBottom="@+id/txt_gastos_cantidad"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                android:layout_marginBottom="0dp"
+                                android:layout_toEndOf="@+id/txt_gastos_cantidad"
+                                android:contentDescription="@string/descripcion"
+                                android:src="@drawable/ic_euro" />
+
+                            <ImageView
+                                android:id="@+id/barra_gastos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txt_gastos_cantidad"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="5dp"
+                                android:contentDescription="@string/descripcion"
+                                android:src="@drawable/rectangulo_rojo" />
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_layout"
+            android:padding="5dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</RelativeLayout>

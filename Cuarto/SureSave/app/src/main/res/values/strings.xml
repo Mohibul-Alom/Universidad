@@ -25,4 +25,20 @@
     <string name="cuenta">Cuenta</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nombre_usuario">Jhon</string>
+    <string name="ingresos">Ingresos</string>
+    <string name="cantidad">10000</string>
+    <string name="gastos">Gastos</string>
+    <string name="bizum">Bizum</string>
+    <string name="transferencia">Trasferencia</string>
+    <string name="otros">Otros</string>
+    <string name="nomina">Nómina</string>
+    <string name="añadir">Añadir</string>
+    <string name="comida">Comida</string>
+    <string name="ropa">Ropa</string>
+    <string name="libro">Libro</string>
+    <string name="informatica">Informática</string>
+    <string name="transporte">Transporte</string>
+    <string name="fecha">dd/MM/aaaa</string>
+    <string name="categoria">Kebab</string>
 </resources>

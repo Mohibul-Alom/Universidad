@@ -1,4 +1,4 @@
-package uni.laboratorio.chitchat;
+ package uni.laboratorio.chitchat;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

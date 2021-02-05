@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/terciario"
+    android:windowSoftInputMode="adjustPan"
+    tools:context=".fragment.IngresosFragment">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/layout_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/titulo_ingresos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/bold"
+            android:text="@string/ingresos"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <ImageButton
+            android:id="@+id/cancel_button_ingresos"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@android:color/transparent"
+            android:clickable="true"
+            android:contentDescription="@string/descripcion"
+            android:focusable="true"
+            android:src="@drawable/cancel" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup_ingresos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_titulo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/bizum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#07B32A"
+            android:drawableEnd="@drawable/bizum"
+            android:ems="20"
+            android:fontFamily="@font/normal"
+            android:text="@string/bizum"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/trasferencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#07B32A"
+            android:drawableEnd="@drawable/transfer"
+            android:ems="20"
+            android:fontFamily="@font/normal"
+            android:text="@string/transferencia"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/nomina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#07B32A"
+            android:drawableEnd="@drawable/nomina"
+            android:ems="20"
+            android:fontFamily="@font/normal"
+            android:text="@string/nomina"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/otros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#07B32A"
+            android:drawableEnd="@drawable/ic_baseline_more_horiz_24"
+            android:ems="20"
+            android:fontFamily="@font/normal"
+            android:text="@string/otros"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/calendario_ingresos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroup_ingresos"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:autofillHints=""
+        android:background="@drawable/custom_edittext"
+        android:backgroundTint="@color/white"
+        android:ems="5"
+        android:fontFamily="@font/normal"
+        android:hint="@string/fecha"
+        android:inputType="date"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <ImageButton
+        android:id="@+id/imagen_calendario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_alignTop="@+id/calendario_ingresos"
+        android:layout_alignBottom="@+id/calendario_ingresos"
+        android:layout_toEndOf="@+id/calendario_ingresos"
+        android:contentDescription="@string/descripcion"
+        android:focusable="true"
+        android:src="@drawable/ic_calendario" />
+
+    <EditText
+        android:id="@+id/ingresos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/calendario_ingresos"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_edittext"
+        android:backgroundTint="@color/white"
+        android:digits="0123456789.,"
+        android:ems="5"
+        android:fontFamily="@font/normal"
+        android:gravity="center_horizontal"
+        android:hint="@string/cantidad"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/euro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ingresos"
+        android:layout_alignBottom="@+id/ingresos"
+        android:layout_toEndOf="@+id/ingresos"
+        android:contentDescription="@string/descripcion"
+        android:src="@drawable/ic_euro" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/añadir_ingresos"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ingresos"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/azul"
+        android:ems="20"
+        android:text="@string/añadir"
+        app:cornerRadius="20dp"
+        app:rippleColor="@color/white" />
+
+
+</RelativeLayout>

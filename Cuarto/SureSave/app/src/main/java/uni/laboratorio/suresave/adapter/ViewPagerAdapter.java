@@ -1,4 +1,4 @@
-package uni.laboratorio.suresave;
+package uni.laboratorio.suresave.adapter;
 
 
 import android.content.Context;
@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
+
+import uni.laboratorio.suresave.R;
 
 public class ViewPagerAdapter extends PagerAdapter {
 

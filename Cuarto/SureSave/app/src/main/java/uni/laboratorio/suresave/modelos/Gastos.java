@@ -6,19 +6,27 @@ public class Gastos {
 
     private String usuarioid;
     private String gastosid;
-    private int total;
+    private String total;
     private String categoria;
-    private LocalDate date;
+    private long fecha;
 
     public Gastos() {
     }
 
-    public Gastos(String usuarioid, String gastosid, int total, String categoria, LocalDate date) {
+    public Gastos(String usuarioid, String gastosid, String total, String categoria, long fecha) {
         this.usuarioid = usuarioid;
         this.gastosid = gastosid;
         this.total = total;
         this.categoria = categoria;
-        this.date = date;
+        this.fecha = fecha;
+    }
+
+    public long getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(long fecha) {
+        this.fecha = fecha;
     }
 
     public String getUsuarioid() {
@@ -37,11 +45,11 @@ public class Gastos {
         this.gastosid = gastosid;
     }
 
-    public int getTotal() {
+    public String getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(String total) {
         this.total = total;
     }
 
@@ -53,11 +61,5 @@ public class Gastos {
         this.categoria = categoria;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
 }

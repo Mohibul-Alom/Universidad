@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/terciario"
+    android:windowSoftInputMode="adjustPan"
+    tools:context=".fragment.GastosFragment">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/layout_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/titulo_gastos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/bold"
+            android:text="@string/gastos"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <ImageButton
+            android:id="@+id/cancel_button_gastos"
+            android:layout_width="24dp"
+            android:focusable="true"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/descripcion"
+            android:src="@drawable/cancel" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <ScrollView
+        android:id="@+id/scrollview_gastos"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_below="@+id/layout_titulo"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:padding="30dp"
+        android:scrollbarSize="5dp"
+        android:scrollbarStyle="outsideInset"
+        android:fadeScrollbars="false"
+        android:scrollbarThumbVertical="@android:color/white"
+        android:scrollbars="vertical">
+
+        <RadioGroup
+            android:id="@+id/radioGroup_gastos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/comida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#B40B0B"
+                android:drawableEnd="@drawable/restaurant"
+                android:ems="20"
+                android:fontFamily="@font/normal"
+                android:text="@string/comida"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/ropa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#B40B0B"
+                android:drawableEnd="@drawable/clothes"
+                android:ems="20"
+                android:fontFamily="@font/normal"
+                android:text="@string/ropa"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/libro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#B40B0B"
+                android:drawableEnd="@drawable/books"
+                android:ems="20"
+                android:fontFamily="@font/normal"
+                android:text="@string/libro"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/informatica"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#B40B0B"
+                android:drawableEnd="@drawable/computadora"
+                android:ems="20"
+                android:fontFamily="@font/normal"
+                android:text="@string/informatica"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/transporte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#B40B0B"
+                android:drawableEnd="@drawable/bus"
+                android:ems="20"
+                android:fontFamily="@font/normal"
+                android:text="@string/transporte"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/otros"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#B40B0B"
+                android:drawableEnd="@drawable/ic_baseline_more_horiz_24"
+                android:ems="20"
+                android:fontFamily="@font/normal"
+                android:text="@string/otros"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </RadioGroup>
+
+
+    </ScrollView>
+
+
+    <EditText
+        android:id="@+id/gastos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/calendario_gastos"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_edittext"
+        android:backgroundTint="@color/white"
+        android:digits="0123456789.,"
+        android:ems="5"
+        android:fontFamily="@font/normal"
+        android:gravity="center_horizontal"
+        android:hint="@string/cantidad"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/euro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/gastos"
+        android:layout_alignBottom="@+id/gastos"
+        android:layout_toEndOf="@+id/gastos"
+        android:contentDescription="@string/descripcion"
+        android:src="@drawable/ic_euro" />
+
+    <EditText
+        android:id="@+id/calendario_gastos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scrollview_gastos"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:autofillHints=""
+        android:background="@drawable/custom_edittext"
+        android:backgroundTint="@color/white"
+        android:ems="5"
+        android:fontFamily="@font/normal"
+        android:hint="@string/fecha"
+        android:inputType="date"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <ImageButton
+        android:id="@+id/btn_calendario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_alignTop="@+id/calendario_gastos"
+        android:layout_alignBottom="@+id/calendario_gastos"
+        android:background="@android:color/transparent"
+        android:layout_toEndOf="@+id/calendario_gastos"
+        android:contentDescription="@string/descripcion"
+        android:src="@drawable/ic_calendario"
+        android:focusable="true" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/añadir_gastos"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gastos"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/azul"
+        android:ems="20"
+        android:text="@string/añadir"
+        app:cornerRadius="20dp"
+        app:rippleColor="@color/white" />
+
+
+</RelativeLayout>

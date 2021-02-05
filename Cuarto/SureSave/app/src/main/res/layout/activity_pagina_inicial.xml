@@ -65,8 +65,8 @@
         android:visibility="gone"
         app:backgroundTint="#39395C"
         app:elevation="8dp"
-        app:fabCustomSize="50dp"
-        app:maxImageSize="30dp"
+        app:fabCustomSize="60dp"
+        app:maxImageSize="50dp"
         app:tint="#B40B0B" />
 
 
@@ -83,8 +83,8 @@
         android:src="@drawable/income"
         android:visibility="gone"
         app:backgroundTint="#39395C"
-        app:fabCustomSize="50dp"
-        app:maxImageSize="30dp"
+        app:fabCustomSize="60dp"
+        app:maxImageSize="50dp"
         app:tint="#07B32A" />
 
 
