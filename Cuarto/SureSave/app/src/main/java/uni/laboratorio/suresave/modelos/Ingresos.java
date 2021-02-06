@@ -1,23 +1,29 @@
 package uni.laboratorio.suresave.modelos;
 
-import java.time.LocalDate;
-
 public class Ingresos {
 
     private String usuarioid;
     private String ingresosid;
-    private int total;
+    private double total;
     private String categoria;
-    private LocalDate date;
+    private long date;
 
     public Ingresos() {
     }
 
-    public Ingresos(String usuarioid, String ingresosid, int total, String categoria, LocalDate date) {
+    public Ingresos(String usuarioid, String ingresosid, double total, String categoria, long date) {
         this.usuarioid = usuarioid;
         this.ingresosid = ingresosid;
         this.total = total;
         this.categoria = categoria;
+        this.date = date;
+    }
+
+    public long getDate() {
+        return date;
+    }
+
+    public void setDate(long date) {
         this.date = date;
     }
 
@@ -37,11 +43,11 @@ public class Ingresos {
         this.ingresosid = ingresosid;
     }
 
-    public int getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 
@@ -53,11 +59,5 @@ public class Ingresos {
         this.categoria = categoria;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
 }

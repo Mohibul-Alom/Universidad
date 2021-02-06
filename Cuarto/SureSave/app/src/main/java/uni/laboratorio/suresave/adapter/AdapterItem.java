@@ -76,11 +76,16 @@ public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ItemViewHolder
 
         @SuppressLint("ResourceAsColor")
         public void viewBind(Gastos gastos) {
+            //FBD la fecha esta en long, de long hay que pasar a date, y de date hay que pasarlo a String
             //hay que pasar a string la fecha para poner escribirlo en el edittext
+            long tempLong = gastos.getFecha();
             fecha.setText((int)gastos.getFecha());
 
             categoria.setText(gastos.getCategoria());
-            cantidad.setText(gastos.getTotal());
+            //esta mierda no deja ponerlo en double, luego hay que buscar una solucion
+            Double temp = gastos.getTotal();
+            String gastoTemp = Double.toString(temp);
+            cantidad.setText(gastoTemp);
 
             //establecemos una imagen por cada categoria
             //cambiar despues por switch case que queda más bonito
@@ -109,9 +114,6 @@ public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ItemViewHolder
             }
 
             barra_indicador.setBackgroundColor(R.color.white);
-
-
-
 
 
             /*

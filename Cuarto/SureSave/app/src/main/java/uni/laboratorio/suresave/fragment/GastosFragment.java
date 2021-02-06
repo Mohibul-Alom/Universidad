@@ -159,7 +159,7 @@ public class GastosFragment extends Fragment {
         btn_anadir_gastos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //se puede dejarlo mas limpio
                 //obtenemos el valor de los euros ya gastados
                 obtenerGastosUsuario();
 
@@ -169,15 +169,15 @@ public class GastosFragment extends Fragment {
                 } else {
                     //comprobamos si la fecha introducida es con el formato correto
                     if (!comprobarFecha(calendario_gastos.getText().toString())) {
-                        Toast.makeText(getContext(), "no coincide la fecha con el formato dd/MM/yyyy", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "No coincide la fecha con el formato dd/MM/yyyy", Toast.LENGTH_SHORT).show();
                     } else {
                         //la fecha introducida es correcta, ahora veamos si se ha escrito alguna cantidad en gastos
                         if (!comprobarCantidad(cantidad_gastos.getText().toString())) {
                             Toast.makeText(getContext(), "Introdzca un cantidad superior a 0", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(getContext(), "Ha introducido " +
-                                    categoria_gastos + ">> " + fecha_gastos + " >>" +
-                                    total_gastos + " ", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getContext(), "Ha introducido " +
+                             //       categoria_gastos + ">> " + fecha_gastos + " >>" +
+                               //     total_gastos + " ", Toast.LENGTH_SHORT).show();
 
                             //ahora que tenemos todos lo datos, vamos a volcarlo en firebase
                             subirFirebase();
@@ -197,7 +197,7 @@ public class GastosFragment extends Fragment {
         HashMap<String, Object> datos_gastos = new HashMap<>();
         datos_gastos.put("usuarioid", auth.getCurrentUser().getUid());
         datos_gastos.put("gastosid", gastosId);
-        datos_gastos.put("total", total_gastos);
+        datos_gastos.put("total", (double)total_gastos);
         datos_gastos.put("categoria", categoria_gastos);
         datos_gastos.put("fecha", fecha_gastos);
 
@@ -222,7 +222,6 @@ public class GastosFragment extends Fragment {
     }
 
     private void obtenerGastosUsuario() {
-
 
         reference.child("Usuarios").child(auth.getCurrentUser().getUid())
                 .addListenerForSingleValueEvent(new ValueEventListener() {

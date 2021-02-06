@@ -6,14 +6,15 @@ public class Gastos {
 
     private String usuarioid;
     private String gastosid;
-    private String total;
+    //funcionaba con string total
+    private double total;
     private String categoria;
     private long fecha;
 
     public Gastos() {
     }
 
-    public Gastos(String usuarioid, String gastosid, String total, String categoria, long fecha) {
+    public Gastos(String usuarioid, String gastosid, double total, String categoria, long fecha) {
         this.usuarioid = usuarioid;
         this.gastosid = gastosid;
         this.total = total;
@@ -45,11 +46,11 @@ public class Gastos {
         this.gastosid = gastosid;
     }
 
-    public String getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(String total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 
