@@ -2,6 +2,7 @@ package uni.laboratorio.suresave.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,64 +13,108 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import uni.laboratorio.suresave.R;
 import uni.laboratorio.suresave.modelos.Gastos;
 import uni.laboratorio.suresave.modelos.Ingresos;
 import uni.laboratorio.suresave.modelos.Movimiento;
 
-public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ItemViewHolder>{
+public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ViewHolder>{
 
-    Context context;
+    private Context context;
+    private List<Movimiento> lista_movimiento;
 
-    ArrayList<Gastos> listaGastos;
-    ArrayList<Ingresos> listaIngresos;
-    ArrayList<Movimiento> listaMovimiento;
-    boolean seleccion;
-
-    public AdapterItem(Context context, ArrayList<Movimiento> listaMovimiento) {
+    public AdapterItem(Context context, List<Movimiento> lista_movimiento) {
         this.context = context;
-        this.listaGastos = listaGastos;
-        this.listaIngresos = listaIngresos;
-        this.listaMovimiento = listaMovimiento;
-        this.seleccion = seleccion;
+        this.lista_movimiento = lista_movimiento;
     }
 
     @NonNull
     @Override
-    public AdapterItem.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_layout,parent,false);
 
-        return new ItemViewHolder(itemView);
+        return new AdapterItem.ViewHolder(view);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
-    public void onBindViewHolder(@NonNull AdapterItem.ItemViewHolder holder, int position) {
-        holder.viewBind((listaMovimiento.get(position)));
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+        Movimiento movimiento = lista_movimiento.get(position);
+        String tempFecha = convertirFecha(movimiento.getFecha());
+        holder.fecha.setText(tempFecha);
+
+        holder.categoria.setText(movimiento.getCategoria());
+
+        double temp = movimiento.getCantidad();
+        String gastoTemp = Double.toString(temp);
+        holder.cantidad.setText(gastoTemp);
+
+        switch (movimiento.getCategoria()){
+            case "Ropa":
+                holder.imagen_categoria.setImageResource(R.drawable.clothes);
+                break;
+            case "Comida":
+                holder.imagen_categoria.setImageResource(R.drawable.restaurant);
+                break;
+            case "Libro":
+                holder.imagen_categoria.setImageResource(R.drawable.books);
+                break;
+            case "Informatica":
+                holder.imagen_categoria.setImageResource(R.drawable.computadora);
+                break;
+            case "Trasporte":
+                holder.imagen_categoria.setImageResource(R.drawable.bus);
+                break;
+            case "Otros":
+                holder.imagen_categoria.setImageResource(R.drawable.ic_baseline_more_horiz_24);
+                break;
+            case "Bizum":
+                holder.imagen_categoria.setImageResource(R.drawable.bizum);
+                break;
+            case "Transferencia":
+                holder.imagen_categoria.setImageResource(R.drawable.transfer);
+                break;
+            case "Nómina":
+                holder.imagen_categoria.setImageResource(R.drawable.nomina);
+                break;
+            default:
+                holder.imagen_categoria.setImageResource(R.drawable.outcome);
+                break;
+        }
+
+        if (movimiento.isTipo()){
+
+            holder.barra_indicador.setBackgroundColor(R.color.rojo);
+        }else {
+            holder.barra_indicador.setBackgroundColor(R.color.verde);
+        }
+
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return lista_movimiento.size();
     }
 
-    public class ItemViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
+        public TextView fecha,categoria,cantidad;
+        public ImageView imagen_categoria;
+        public TextView barra_indicador;
 
-        //declaramos las cosas del layout
-        TextView fecha,categoria,cantidad;
-        ImageView imagen_categoria;
-        LinearLayout barra_indicador;
-
-
-        public ItemViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             fecha = itemView.findViewById(R.id.fecha);
@@ -77,78 +122,6 @@ public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ItemViewHolder
             cantidad = itemView.findViewById(R.id.cantidad);
             imagen_categoria = itemView.findViewById(R.id.imagen_categorias);
             barra_indicador = itemView.findViewById(R.id.barra_indicador);
-
-        }
-
-        @SuppressLint("ResourceAsColor")
-        public void viewBind(Movimiento movimiento) {
-            //FBD la fecha esta en long, de long hay que pasar a date, y de date hay que pasarlo a String
-            //hay que pasar a string la fecha para poner escribirlo en el edittext
-            String tempFecha = convertirFecha(movimiento.getFecha());
-            fecha.setText(tempFecha);
-
-            categoria.setText(movimiento.getCategoria());
-
-            //esta mierda no deja ponerlo en double, luego hay que buscar una solucion
-            double temp = movimiento.getCantidad();
-            String gastoTemp = Double.toString(temp);
-            cantidad.setText(gastoTemp);
-
-            //establecemos una imagen por cada categoria
-            //cambiar despues por switch case que queda más bonito
-
-            switch (movimiento.getCategoria()){
-                case "Ropa":
-                    imagen_categoria.setImageResource(R.drawable.clothes);
-                    break;
-                case "Comida":
-                    imagen_categoria.setImageResource(R.drawable.restaurant);
-                    break;
-                case "Libro":
-                    imagen_categoria.setImageResource(R.drawable.books);
-                    break;
-                case "Informatica":
-                    imagen_categoria.setImageResource(R.drawable.computadora);
-                    break;
-                case "Trasporte":
-                    imagen_categoria.setImageResource(R.drawable.bus);
-                    break;
-                case "Otros":
-                    imagen_categoria.setImageResource(R.drawable.ic_baseline_more_horiz_24);
-                    break;
-                case "Bizum":
-                    imagen_categoria.setImageResource(R.drawable.bizum);
-                    break;
-                case "Transferencia":
-                    imagen_categoria.setImageResource(R.drawable.transfer);
-                    break;
-                case "Nómina":
-                    imagen_categoria.setImageResource(R.drawable.nomina);
-                default:
-                    imagen_categoria.setImageResource(R.drawable.outcome);
-            }
-
-            if (movimiento.isTipo()){
-                barra_indicador.setBackgroundColor(R.color.rojo);
-            }else {
-                barra_indicador.setBackgroundColor(R.color.verde);
-            }
-
-
-            /*
-            if (gastos.getCategoria().equals("Ropa")){
-                imagen_categoria.setImageResource(R.drawable.clothes);
-            }else if (gastos.getCategoria().equals("Comida")){
-                imagen_categoria.setImageResource(R.drawable.restaurant);
-            }else if (gastos.getCategoria().equals("Libro")){
-                imagen_categoria.setImageResource(R.drawable.books);
-            }else if (gastos.getCategoria().equals("Informatica")){
-                imagen_categoria.setImageResource(R.drawable.computadora);
-            }else if (gastos.getCategoria().equals("Trasporte")){
-                imagen_categoria.setImageResource(R.drawable.bus);
-            }else if (gastos.getCategoria().equals("Otros")){
-                imagen_categoria.setImageResource(R.drawable.ic_baseline_more_horiz_24);
-            }*/
 
         }
     }
@@ -161,4 +134,6 @@ public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ItemViewHolder
         return format.format(date);
 
     }
+
+
 }

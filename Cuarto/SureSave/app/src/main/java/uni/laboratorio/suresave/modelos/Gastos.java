@@ -62,5 +62,14 @@ public class Gastos {
         this.categoria = categoria;
     }
 
-
+    @Override
+    public String toString() {
+        return "Gastos{" +
+                "usuarioid='" + usuarioid + '\'' +
+                ", gastosid='" + gastosid + '\'' +
+                ", total=" + total +
+                ", categoria='" + categoria + '\'' +
+                ", fecha=" + fecha +
+                '}';
+    }
 }

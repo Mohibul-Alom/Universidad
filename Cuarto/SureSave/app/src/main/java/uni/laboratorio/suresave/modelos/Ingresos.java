@@ -59,5 +59,14 @@ public class Ingresos {
         this.categoria = categoria;
     }
 
-
+    @Override
+    public String toString() {
+        return "Ingresos{" +
+                "usuarioid='" + usuarioid + '\'' +
+                ", ingresosid='" + ingresosid + '\'' +
+                ", total=" + total +
+                ", categoria='" + categoria + '\'' +
+                ", fecha=" + fecha +
+                '}';
+    }
 }

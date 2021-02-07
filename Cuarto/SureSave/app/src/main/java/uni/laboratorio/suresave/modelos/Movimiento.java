@@ -67,4 +67,15 @@ public class Movimiento implements Comparable<Movimiento> {
     public int compareTo(Movimiento o) {
         return Long.compare(this.fecha,o.getFecha());
     }
+
+    @Override
+    public String toString() {
+        return "Movimiento{" +
+                "tipo=" + tipo +
+                ", categoria='" + categoria + '\'' +
+                ", cantidad=" + cantidad +
+                ", fecha=" + fecha +
+                ", idMovimiento='" + idMovimiento + '\'' +
+                '}';
+    }
 }

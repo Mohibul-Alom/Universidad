@@ -82,6 +82,7 @@ public class PaginaInicial extends AppCompatActivity implements GastosFragment.E
 
                 switch (item.getItemId()) {
                     case R.id.nav_home:
+
                         selectorFragment = new HomeFragment();
                         break;
 

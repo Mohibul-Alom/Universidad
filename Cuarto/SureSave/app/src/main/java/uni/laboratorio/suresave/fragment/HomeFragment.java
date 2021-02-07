@@ -1,17 +1,26 @@
 package uni.laboratorio.suresave.fragment;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,6 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -47,15 +57,19 @@ public class HomeFragment extends Fragment {
     private TextView view_ingresos_cantidad;
     private TextView view_gastos_cantidad;
     private RecyclerView recycler_list;
+    ProgressBar progressBar;
 
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
     FirebaseAuth auth = FirebaseAuth.getInstance();
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
         //referenciamos todos los objetos que vayamos a usar
         view_imagen_perfil = view.findViewById(R.id.imagen_perfil);
         view_nombre_usuario = view.findViewById(R.id.nombre_usuario);
@@ -63,7 +77,23 @@ public class HomeFragment extends Fragment {
         view_gastos_cantidad = view.findViewById(R.id.txt_gastos_cantidad);
 
         recycler_list = view.findViewById(R.id.recycle_list);
+        //recycler_list.setHasFixedSize(true);
+        //tendria que haber un
+        //recycler_list.setLayoutManager(new RelativeLayout(getActivity()));
 
+        progressBar = view.findViewById(R.id.progressBar);
+
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+
+        progressBar.getIndeterminateDrawable()
+                .setColorFilter(Color.rgb(0,0,255), PorterDuff.Mode.SRC_IN);
+        progressBar.setVisibility(View.VISIBLE);
         //inicializamos los arrays
         lista_ingresos = new ArrayList<>();
         lista_gastos = new ArrayList<>();
@@ -72,117 +102,11 @@ public class HomeFragment extends Fragment {
         //iniciamos el objeto Usuario
         usuario = new Usuario();
 
-
-        //ponemos los datos del usuario visible **********FALTA LA IMAGEN DEL PERFIL************
-        /*
-        view_nombre_usuario.setText(usuario.getNombre());
-        view_ingresos_cantidad.setText(String.valueOf(usuario.getIngresos()));
-        view_gastos_cantidad.setText(String.valueOf(usuario.getGastos()));*/
-
-        //ahora toca inflar el reclycleview
-        adapterItem = new AdapterItem(getContext(), lista_movimiento);
-        recycler_list.setAdapter(adapterItem);
-
-
-        //recuperams la info del usuario de FBD
+        //hay que recuperar los datos del usuario ademas de gastos e ingresos
         infoUsuario();
 
 
-        return view;
     }
-
-    private void infoMovimientos() {
-
-        //por si acaso vaciamos las listas
-        if (!lista_gastos.isEmpty()) {
-            lista_gastos.clear();
-        }
-        if (!lista_ingresos.isEmpty()) {
-            lista_ingresos.clear();
-        }
-        if (!lista_movimiento.isEmpty()){
-            lista_movimiento.clear();
-        }
-
-        //recuperamos los gastos
-        ValueEventListener gastos = reference.child("Gastos").child(auth.getCurrentUser().getUid())
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        //guardamos uno a uno todos los gastos del usuario en el array
-                        for (DataSnapshot ds : snapshot.getChildren()) {
-                            Gastos g1 = ds.getValue(Gastos.class);
-                            System.out.println(g1.toString());
-                            lista_gastos.add(ds.getValue(Gastos.class));
-                        }
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-        reference.removeEventListener(gastos);
-
-
-        //recuperamos los ingresos
-        ValueEventListener ingresos = reference.child("Ingresos").child(auth.getCurrentUser().getUid())
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        //guardamos los ingresos del usuario en el array
-                        for (DataSnapshot ds : snapshot.getChildren()) {
-                            lista_ingresos.add(ds.getValue(Ingresos.class));
-                            System.out.println(ds.getValue(Ingresos.class).toString());
-                            ;
-                        }
-                        //añadido despues
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-        reference.removeEventListener(ingresos);
-        
-        System.out.println("***************************************************************************");
-        System.out.println(lista_ingresos.toString());
-
-        //ahora debemos meter ambas listas en el array de movimiento y ordenarlo
-
-        for (Gastos gs : lista_gastos) {
-            Movimiento m1 = new Movimiento();
-            m1.setTipo(true);
-            m1.setCategoria(gs.getCategoria());
-            m1.setCantidad(gs.getTotal());
-            m1.setFecha(gs.getFecha());
-            m1.setIdMovimiento(gs.getGastosid());
-            lista_movimiento.add(m1);
-        }
-
-        for (Ingresos in : lista_ingresos) {
-            Movimiento m2 = new Movimiento();
-            m2.setTipo(false);
-            m2.setCategoria(in.getCategoria());
-            m2.setCantidad(in.getTotal());
-            m2.setFecha(in.getFecha());
-            m2.setIdMovimiento(in.getIngresosid());
-        }
-
-        //ordenamos los movimientos
-        Collections.sort(lista_movimiento);
-
-        adapterItem.notifyDataSetChanged();
-
-
-        //en teoria ya deberiamos tener todos los movimientos ordenados
-
-    }
-
-
 
     private void infoUsuario() {
 
@@ -212,5 +136,91 @@ public class HomeFragment extends Fragment {
                         Log.i("Home fragment", "onCancelled: " + error.getMessage());
                     }
                 });
+    }
+
+    private void infoMovimientos() {
+
+        if (!lista_movimiento.isEmpty()){
+            lista_movimiento.clear();
+        }
+
+        reference.child("Gastos").child(auth.getCurrentUser().getUid())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (!lista_gastos.isEmpty()){
+                            lista_gastos.clear();
+                        }
+                        //guardamos uno a uno todos los gastos del usuario en el array
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            Gastos g1 = ds.getValue(Gastos.class);
+                            System.out.println(g1.toString());
+                            lista_gastos.add(ds.getValue(Gastos.class));
+
+                            Movimiento m1 = new Movimiento();
+                            m1.setTipo(true);
+                            m1.setCategoria(ds.getValue(Gastos.class).getCategoria());
+                            m1.setCantidad(ds.getValue(Gastos.class).getTotal());
+                            m1.setFecha(ds.getValue(Gastos.class).getFecha());
+                            m1.setIdMovimiento(ds.getValue(Gastos.class).getGastosid());
+                            lista_movimiento.add(m1);
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+        //recuperamos los ingresos
+        reference.child("Ingresos").child(auth.getCurrentUser().getUid())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (!lista_ingresos.isEmpty()){
+                            lista_ingresos.clear();
+                        }
+                        //guardamos los ingresos del usuario en el array
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            lista_ingresos.add(ds.getValue(Ingresos.class));
+                            System.out.println(ds.getValue(Ingresos.class).toString());
+
+                            Movimiento m2 = new Movimiento();
+                            m2.setTipo(false);
+                            m2.setCategoria(ds.getValue(Ingresos.class).getCategoria());
+                            m2.setCantidad(ds.getValue(Ingresos.class).getTotal());
+                            m2.setFecha(ds.getValue(Ingresos.class).getFecha());
+                            m2.setIdMovimiento(ds.getValue(Ingresos.class).getIngresosid());
+                            lista_movimiento.add(m2);
+
+                        }
+                        //añadido despues
+                        //ahora debemos meter ambas listas en el array de movimiento y ordenarlo
+
+
+                        //ordenamos los movimientos
+                        Collections.sort(lista_movimiento);
+                        Collections.reverse(lista_movimiento);
+                        System.out.println(lista_movimiento.toString());
+
+                        System.out.println("*****************************************************************");
+                        System.out.println("Lista de movimiento: "+lista_movimiento);
+                        adapterItem = new AdapterItem(getContext(), lista_movimiento);
+                        recycler_list.setAdapter(adapterItem);
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
     }
 }

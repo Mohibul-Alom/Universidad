@@ -252,7 +252,7 @@ public class GastosFragment extends Fragment {
                 otros.isChecked();*/
 
         if (comida.isChecked()) {
-            categoria_gastos = "Commida";
+            categoria_gastos = "Comida";
             return true;
         } else if (ropa.isChecked()) {
             categoria_gastos = "Ropa";
