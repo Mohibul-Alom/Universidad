@@ -6,25 +6,25 @@ public class Ingresos {
     private String ingresosid;
     private double total;
     private String categoria;
-    private long date;
+    private long fecha;
 
     public Ingresos() {
     }
 
-    public Ingresos(String usuarioid, String ingresosid, double total, String categoria, long date) {
+    public Ingresos(String usuarioid, String ingresosid, double total, String categoria, long fecha) {
         this.usuarioid = usuarioid;
         this.ingresosid = ingresosid;
         this.total = total;
         this.categoria = categoria;
-        this.date = date;
+        this.fecha = fecha;
     }
 
-    public long getDate() {
-        return date;
+    public long getFecha() {
+        return fecha;
     }
 
-    public void setDate(long date) {
-        this.date = date;
+    public void setFecha(long fecha) {
+        this.fecha = fecha;
     }
 
     public String getUsuarioid() {

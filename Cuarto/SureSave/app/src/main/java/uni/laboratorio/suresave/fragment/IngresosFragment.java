@@ -256,7 +256,7 @@ public class IngresosFragment extends Fragment {
             categoria_ingresos = "Bizum";
             return true;
         } else if (trasferencia.isChecked()) {
-            categoria_ingresos = "Trasferencia";
+            categoria_ingresos = "Transferencia";
             return true;
         } else if (nomina.isChecked()) {
             categoria_ingresos = "Nómina";

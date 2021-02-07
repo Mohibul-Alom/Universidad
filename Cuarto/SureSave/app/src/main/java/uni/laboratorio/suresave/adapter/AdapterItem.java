@@ -14,11 +14,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import uni.laboratorio.suresave.R;
 import uni.laboratorio.suresave.modelos.Gastos;
 import uni.laboratorio.suresave.modelos.Ingresos;
+import uni.laboratorio.suresave.modelos.Movimiento;
 
 public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ItemViewHolder>{
 
@@ -26,12 +30,14 @@ public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ItemViewHolder
 
     ArrayList<Gastos> listaGastos;
     ArrayList<Ingresos> listaIngresos;
+    ArrayList<Movimiento> listaMovimiento;
     boolean seleccion;
 
-    public AdapterItem(Context context, ArrayList<Gastos> listaGastos, ArrayList<Ingresos> listaIngresos, boolean seleccion) {
+    public AdapterItem(Context context, ArrayList<Movimiento> listaMovimiento) {
         this.context = context;
         this.listaGastos = listaGastos;
         this.listaIngresos = listaIngresos;
+        this.listaMovimiento = listaMovimiento;
         this.seleccion = seleccion;
     }
 
@@ -46,7 +52,7 @@ public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ItemViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull AdapterItem.ItemViewHolder holder, int position) {
-        holder.viewBind((listaGastos.get(position)));
+        holder.viewBind((listaMovimiento.get(position)));
     }
 
     @Override
@@ -75,22 +81,23 @@ public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ItemViewHolder
         }
 
         @SuppressLint("ResourceAsColor")
-        public void viewBind(Gastos gastos) {
+        public void viewBind(Movimiento movimiento) {
             //FBD la fecha esta en long, de long hay que pasar a date, y de date hay que pasarlo a String
             //hay que pasar a string la fecha para poner escribirlo en el edittext
-            long tempLong = gastos.getFecha();
-            fecha.setText((int)gastos.getFecha());
+            String tempFecha = convertirFecha(movimiento.getFecha());
+            fecha.setText(tempFecha);
 
-            categoria.setText(gastos.getCategoria());
+            categoria.setText(movimiento.getCategoria());
+
             //esta mierda no deja ponerlo en double, luego hay que buscar una solucion
-            Double temp = gastos.getTotal();
+            double temp = movimiento.getCantidad();
             String gastoTemp = Double.toString(temp);
             cantidad.setText(gastoTemp);
 
             //establecemos una imagen por cada categoria
             //cambiar despues por switch case que queda más bonito
 
-            switch (gastos.getCategoria()){
+            switch (movimiento.getCategoria()){
                 case "Ropa":
                     imagen_categoria.setImageResource(R.drawable.clothes);
                     break;
@@ -109,11 +116,23 @@ public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ItemViewHolder
                 case "Otros":
                     imagen_categoria.setImageResource(R.drawable.ic_baseline_more_horiz_24);
                     break;
+                case "Bizum":
+                    imagen_categoria.setImageResource(R.drawable.bizum);
+                    break;
+                case "Transferencia":
+                    imagen_categoria.setImageResource(R.drawable.transfer);
+                    break;
+                case "Nómina":
+                    imagen_categoria.setImageResource(R.drawable.nomina);
                 default:
                     imagen_categoria.setImageResource(R.drawable.outcome);
             }
 
-            barra_indicador.setBackgroundColor(R.color.white);
+            if (movimiento.isTipo()){
+                barra_indicador.setBackgroundColor(R.color.rojo);
+            }else {
+                barra_indicador.setBackgroundColor(R.color.verde);
+            }
 
 
             /*
@@ -132,5 +151,14 @@ public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ItemViewHolder
             }*/
 
         }
+    }
+
+    private String convertirFecha(long fecha) {
+
+        Date date = new Date(fecha);
+        @SuppressLint("SimpleDateFormat")
+        Format format = new SimpleDateFormat("dd/MM/yyyy");
+        return format.format(date);
+
     }
 }
