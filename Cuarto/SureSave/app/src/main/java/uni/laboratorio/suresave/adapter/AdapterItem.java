@@ -95,11 +95,12 @@ public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ViewHolder>{
 
         if (movimiento.isTipo()){
 
-            holder.barra_indicador.setBackgroundColor(R.color.rojo);
+            holder.barra_indicador.setBackgroundColor(R.drawable.rectangulo_rojo);
+            System.out.println("Color que tendria que ser en true: rojo********************************************");
         }else {
-            holder.barra_indicador.setBackgroundColor(R.color.verde);
+            holder.barra_indicador.setBackgroundColor(R.drawable.rectangulo_verde);
+            System.out.println("Color que tendria que ser en true: verde********************************************");
         }
-
 
     }
 
@@ -112,7 +113,7 @@ public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ViewHolder>{
 
         public TextView fecha,categoria,cantidad;
         public ImageView imagen_categoria;
-        public TextView barra_indicador;
+        public LinearLayout barra_indicador;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
