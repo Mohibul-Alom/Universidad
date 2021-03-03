@@ -1,0 +1,155 @@
+<html lang="es">
+<head>
+    <link rel = "stylesheet"
+          type="text/css"
+          href = "../css/styles.css" />
+    <meta charset = "utf-8" />
+    <title>YouWatch</title>
+    <link rel = "icon" href =
+            "tv.svg"
+          type = "image/x-icon">
+
+    <script>
+        var totalFileLength, totalUploaded, fileCount, filesUploaded , upload;
+
+        //To log everything on console
+        function debug(s) {
+            var debug = document.getElementById('debug');
+            if (debug) {
+                debug.innerHTML = debug.innerHTML + '<br/>' + s;
+            }
+        }
+
+        //Will be called when upload is completed
+        function onUploadComplete(e) {
+            debug('totalUploaded');
+            var bar = document.getElementById('bar');
+            bar.style.width = '100%';
+            bar.innerHTML = '100% complete';
+            alert('Video subido y transcodificado');
+        }
+
+        //Will be called when user select the files in file control
+        function onFileSelect(e) {
+            var files = e.target.files; // FileList object
+            var output = [];
+
+            if(files.length > 1)
+            {
+                alert("Maximo un solo fichero");
+                upload = false
+                return;
+            }
+            else
+            {
+                upload = true;
+            }
+            document.getElementById("info").innerHTML = ((files[0].size/1024)/1024) + " MBytes";
+
+            fileCount = files.length;
+            totalFileLength = files[0].size;
+            for (var i = 0; i < fileCount; i++) {
+                var file = files[i];
+                var string = file.name;
+                var trimmedString = string.substring(0,15);
+                output.push(trimmedString, ' (', ((file.size/1024)/1024), ' MBytes, ', file.lastModifiedDate.toLocaleDateString(), ')');
+                output.push('<br/>');
+                debug('add ' + file.size);
+            }
+            document.getElementById('selectedFiles').innerHTML = output.join('');
+        }
+
+        //This will continueously update the progress bar
+        function onUploadProgress(e) {
+            if (e.lengthComputable) {
+                var percentComplete = parseInt((e.loaded * 100) / totalFileLength);
+                var bar = document.getElementById('bar');
+                bar.style.width = percentComplete + '%';
+                bar.innerHTML = percentComplete + ' % complete';
+                document.getElementById("info").innerHTML =  e.loaded + " / " + totalFileLength;
+            } else {
+                debug('unable to compute');
+            }
+        }
+
+        //the Ouchhh !! moments will be captured here
+        function onUploadFailed(e) {
+            alert("Error uploading file");
+        }
+
+        //Let's begin the upload process
+        function startUploadd() {
+
+
+            var xhr = new XMLHttpRequest();
+            var fd = new FormData();
+            var file = document.getElementById('file').files[0];
+            fd.append("image", file);
+            fd.append("imageName", document.getElementById('videoName').value);
+            xhr.upload.addEventListener("progress", onUploadProgress, false);
+            xhr.addEventListener("load", onUploadComplete, false);
+            xhr.addEventListener("error", onUploadFailed, false);
+            xhr.open("POST", "http://localhost:8080/uploadVideo");
+            debug('uploading ' + file.name);
+            xhr.send(fd);
+        }
+
+        function startUpload()
+        {
+            if(upload === true)
+            {
+               startUploadd();
+            }
+            else
+            {
+                alert("Maximo un video");
+            }
+        }
+
+        //Event listeners for button clicks
+        window.onload = function() {
+            document.getElementById('file').addEventListener('change', onFileSelect, false);
+            document.getElementById('uploadButton').addEventListener('click', startUpload, false);
+            document.getElementById('videoName');
+        }
+    </script>
+
+
+</head>
+{{> header}}
+<body>
+
+    <div class="navDiv">
+        <div class="videoDiv">
+                <h1 style="text-align: center">Subir fichero de video</h1>
+            <div class="videoDiv">
+                <div id='progressBar' style='height: 20px; border: 2px solid green; margin-bottom: 20px;width: 400px'>
+                    <div id='bar' style='height: 100%; background: #33dd33; width: 0%'>
+                    </div>
+                </div>
+                <h4 style="text-align: center" id="info">50% -> 50Mb/100Mb</h4>
+            </div>
+            <div class="navDiv">
+                <form style="margin-bottom: 5px">
+                    <input type="file" id="file" multiple style="margin-bottom: 20px" accept="/video"/><br/>
+                    <output id="selectedFiles"></output>
+                    <h5>Nombre del video</h5>
+                    <input type='text' name='videoName' id="videoName">
+                    <h5>Etiqueta 1</h5>
+                    <input type='text' name='tag1'>
+                    <h5>Etiqueta 2</h5>
+                    <input type='text' name='tag2'>
+                    <h5>Etiqueta 3</h5>
+                    <input type='text' name='tag3'>
+                    <br>
+                    <input id="uploadButton" type="button" value="Subir video" style="margin-top: 20px"/>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+{{> footer}}
+</html>

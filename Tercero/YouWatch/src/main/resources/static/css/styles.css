@@ -1,0 +1,114 @@
+/* myStyle.css */
+body{
+    background-image: url('http://localhost:8080/wallpaper2.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+.mainDiv {
+    border: 8px outset #ffd319;
+    background-color: #b000ff;
+    align-items: center;
+    display: flex;
+}
+
+.navDiv {
+    align-items: center;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.userProfileDiv {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px outset aqua;
+    background-color: lightblue;
+    width: 400px;
+}
+
+.navDiv2 {
+    border: 4px outset #ff901f;
+    background-color: #c700b5;
+    align-items: center;
+    margin-top: 5px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.videoDiv {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.subDiv {
+    border: 3px outset gold;
+    background-color: lightblue;
+    align-items: center;
+    display: flex;
+    margin-top: 5px;
+}
+
+.comentDiv {
+    border: 2px outset aqua;
+    background-color: darkcyan;
+    width: 640px;
+    margin-top: 5px;
+}
+
+.footerDiv {
+    border: 1px outset aqua;
+    background-color: lightblue;
+    align-items: center;
+    display: flex;
+}
+
+footer {
+    clear: both;
+    position: relative;
+    height: 50px;
+    margin-top: 30px;
+}
+
+.searchForm
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.logoDiv {
+    align-items: center;
+    display: flex;
+    margin-left: 1em;
+    margin-right: auto;
+}
+
+.userDiv {
+    align-items: center;
+    display: flex;
+    margin-left: auto;
+    margin-right: 2em;
+}
+
+.logo {
+margin-left: 2em;
+}
+
+.title{
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    margin-left: 5px;
+    text-align: left;
+    font-size: 200%;
+}
+
+.username
+{
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    font-size: 15px;
+    text-align: center;
+}

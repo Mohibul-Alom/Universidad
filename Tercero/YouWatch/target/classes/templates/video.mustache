@@ -1,0 +1,101 @@
+<html lang="es">
+<head>
+    <link rel = "stylesheet"
+          type="text/css"
+          href = "css/styles.css" />
+    <meta charset = "utf-8" />
+    <title>YouWatch</title>
+    <link rel = "icon" href =
+            "tv.svg"
+          type = "image/x-icon">
+</head>
+{{> header}}
+<body>
+
+<div class="navDiv">
+
+<div class="videoDiv" >
+    <script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
+    <video id="video-id" controls style="width: 640px; height: 360px;">
+        <source data-fluid-hd src='http://localhost:8080/video_url/{{id}}/list1080' title='1080p' type='application/x-mpegURL' />
+        <source data-fluid-hd src='http://localhost:8080/video_url/{{id}}/list720' title='720p' type='application/x-mpegURL' />
+        <source src='http://localhost:8080/video_url/{{id}}/list480' title='480p' type='application/x-mpegURL' />
+    </video>
+    <script>
+        var myFP = fluidPlayer(
+                'video-id',	{
+                    "layoutControls": {
+                        "controlBar": {
+                            "autoHideTimeout": 3,
+                            "animated": true,
+                            "autoHide": true
+                        },
+                        "htmlOnPauseBlock": {
+                            "html": null,
+                            "height": null,
+                            "width": null
+                        },
+                        "logo": {
+                            "imageUrl":           null,
+                            "position":           'top left',
+                            "clickUrl":           null,
+                            "opacity":            1
+                        },
+                        "autoPlay": false,
+                        "mute": true,
+                        "allowTheatre": false,
+                        "playPauseAnimation": true,
+                        "playbackRateEnabled": true, // Boton control velocidad
+                        "allowDownload": false, // Boton descargas
+                        "playButtonShowing": true,
+                        "fillToContainer": false,
+                        "title":           "{{videoNamePlayer}}",
+                        "doubleclickFullscreen": true,
+                        "subtitlesEnabled": false,
+                        "keyboardControl": true,
+                        "posterImage": "http://localhost:8080/videoThumb/{{id}}"
+                    },
+
+                    "vastOptions": {
+                        "adList": [],
+                        "adCTAText": false,
+                        "adCTATextPosition": ""
+                    }
+                })
+    </script>
+
+    <div class="subDiv">
+        <div class="logoDiv">
+            <p>{{videoName}}</p>
+        </div>
+        <div class="userDiv">
+            <form action="test" class="searchForm">
+                <input type='submit' value='Subscribirse' />
+            </form>
+
+            {{#download}}
+                <form action="test" class="searchForm">
+                    <input type='submit' value='Descargar' />
+                </form>
+            {{/download}}
+
+            {{^download}}
+
+            {{/download}}
+        </div>
+    </div>
+
+    <div class="comentDiv">
+        <p>Esto es una prueba de comentario</p>
+        <p>Esto es una otra prueba de comentario</p>
+        <p>Esto es una otra prueba de comentario</p>
+    </div>
+
+</div>
+</div>
+
+
+
+</body>
+{{> footer}}
+</html>

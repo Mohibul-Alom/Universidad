@@ -1,0 +1,41 @@
+<html lang="es">
+<head>
+    <link rel = "stylesheet"
+          type="text/css"
+          href = "css/styles.css" />
+    <meta charset = "utf-8" />
+    <title>YouWatch</title>
+    <link rel = "icon" href =
+            "tv.svg"
+          type = "image/x-icon">
+</head>
+{{> header}}
+<body>
+
+<div class="navDiv">
+    <div class="userProfileDiv">
+        <div class="videoDiv">
+            <img src="profile.svg" alt="TV icon" width="80" height="80" class="logo" style="margin-left: 40%; margin-right: auto">
+            <h2 style="margin-left: 42% ; margin-right: auto">{{name}}</h2>
+            <a href="http://localhost:8080/upload" style="margin-left: 40%">
+                <button>Subir Video</button>
+            </a>
+            <h4>Correo</h4>
+            <p style="margin-top: -15px ; margin-left: 5px">{{email}}</p>
+            <h4>Fecha de nacimiento</h4>
+            <p style="margin-top: -15px ; margin-left: 5px">{{date}}</p>
+            <h4>Mis videos</h4>
+
+            <form action="/upload_image" method="post" enctype="multipart/form-data">
+                <input type='submit' value='Borrar cuenta'/>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+{{> footer}}
+</html>
