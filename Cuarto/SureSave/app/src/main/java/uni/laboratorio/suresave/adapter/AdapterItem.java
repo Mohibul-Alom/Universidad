@@ -94,12 +94,9 @@ public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ViewHolder>{
         }
 
         if (movimiento.isTipo()){
-
-            holder.barra_indicador.setBackgroundColor(R.drawable.rectangulo_rojo);
-            System.out.println("Color que tendria que ser en true: rojo********************************************");
+            holder.barra_indicador.setBackgroundResource(R.drawable.rectangulo_rojo);
         }else {
-            holder.barra_indicador.setBackgroundColor(R.drawable.rectangulo_verde);
-            System.out.println("Color que tendria que ser en true: verde********************************************");
+            holder.barra_indicador.setBackgroundResource(R.drawable.rectangulo_verde);
         }
 
     }
@@ -129,7 +126,7 @@ public class AdapterItem extends RecyclerView.Adapter<AdapterItem.ViewHolder>{
 
     private String convertirFecha(long fecha) {
 
-        Date date = new Date(fecha);
+        Date date = new Date(fecha);;
         @SuppressLint("SimpleDateFormat")
         Format format = new SimpleDateFormat("dd/MM/yyyy");
         return format.format(date);
